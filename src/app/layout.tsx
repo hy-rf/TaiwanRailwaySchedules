@@ -21,7 +21,12 @@ export default function RootLayout({
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Self Pace</title>
       </head>
-      <body>{children}</body>
+      <body>
+        <a href="/">home</a>
+        <a href="/dashboard">dashboard</a>
+        <a href="/user">user</a>
+        {children}
+      </body>
     </html>
   );
 }
