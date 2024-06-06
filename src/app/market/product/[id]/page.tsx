@@ -4,8 +4,10 @@ export default function Post() {
   const params = useParams();
   return (
     <>
-      <a href="/post">go to post</a>
-      <h3 className="text-3xl font-bold underline">{params.id}</h3>
+      <a href="/market">go to market</a>
+      <h3 className="text-3xl font-bold underline">
+        this is product with id {params.id}
+      </h3>
     </>
   );
 }
