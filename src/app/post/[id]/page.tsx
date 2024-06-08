@@ -13,7 +13,7 @@ export async function generateMetadata(
     title: params.id,
   };
 }
-export default function Post({ params }) {
+export default function Post({ params }: any) {
   return (
     <>
       <a href="/post">go to post</a>
