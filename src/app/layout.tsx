@@ -22,9 +22,38 @@ export default function RootLayout({
         <title>Self Pace</title>
       </head>
       <body>
-        <a href="/">home</a>
-        <a href="/dashboard">dashboard</a>
-        <a href="/user">user</a>
+        <nav className="bg-white border-gray-300 dark:bg-gray-500">
+          <div className="flex flex-wrap items-center justify-between p-3 mx-auto">
+            <div>logo</div>
+            <ul className="font-medium flex p-1 mt-0 border border-gray-100 rounded-lg bg-gray-50 rtl:space-x-reverse bg-gray-800 border-gray-700">
+              <li>
+                <a
+                  className="block py-2 px-3 text-gray-900 rounded dark:text-white"
+                  href="/"
+                >
+                  home
+                </a>
+              </li>
+              <li>
+                <a
+                  className="block py-2 px-3 text-gray-900 rounded dark:text-white"
+                  href="/dashboard"
+                >
+                  dashboard
+                </a>
+              </li>
+              <li>
+                <a
+                  className="block py-2 px-3 text-gray-900 rounded dark:text-white"
+                  href="/user"
+                >
+                  user
+                </a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+
         {children}
       </body>
     </html>
