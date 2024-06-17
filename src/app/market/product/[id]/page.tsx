@@ -1,7 +1,19 @@
-"use client";
-import { useParams } from "next/navigation";
-export default function Post() {
-  const params = useParams();
+import type { Metadata, ResolvingMetadata } from "next";
+type Props = {
+  params: {
+    id: string;
+  };
+};
+export async function generateMetadata(
+  { params }: Props,
+  parent: ResolvingMetadata
+): Promise<Metadata> {
+  // TODO: fetch from backend
+  return {
+    title: params.id,
+  };
+}
+export default function Product({ params }: any) {
   return (
     <>
       <a href="/market">go to market</a>
