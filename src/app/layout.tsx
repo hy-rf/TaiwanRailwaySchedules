@@ -23,9 +23,17 @@ export default function RootLayout({
       </head>
       <body>
         <nav className="bg-white border-gray-300 dark:bg-gray-500">
-          <div className="flex flex-wrap items-center justify-between p-3 mx-auto">
-            <div>logo</div>
-            <ul className="font-medium flex p-1 mt-0 border border-gray-100 rounded-lg bg-gray-50 rtl:space-x-reverse bg-gray-800 border-gray-700">
+          <div className="flex flex-wrap items-center justify-between p-0 mx-auto">
+            <a href="/">
+              <img
+                src="/logo.png"
+                width="50"
+                height="50"
+                className="m-0 p-0 ml-2"
+              ></img>
+            </a>
+
+            <ul className="font-medium flex p-1 mt-0 border border-gray-100 rounded-lg bg-gray-50 rtl:space-x-reverse bg-gray-800 border-gray-700 mt-2 m-2">
               <li>
                 <a
                   className="block py-2 px-3 text-gray-900 rounded dark:text-white"
