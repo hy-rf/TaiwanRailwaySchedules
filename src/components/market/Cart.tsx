@@ -1,12 +1,23 @@
+"use client";
+import type typeCart from "@/type/Cart";
+import { useState } from "react";
+function getCart(): typeCart {
+  const cart = JSON.parse(
+    localStorage.getItem("cart") ||
+      JSON.stringify({
+        uuid: 1,
+        content: [],
+      })
+  );
+  return cart;
+}
 export default function Cart() {
-  let cart: Array<any> = [];
-  cart = JSON.parse(localStorage.getItem("Cart") as string);
+  const [cart, setCart] = useState(getCart());
   return (
     <>
-      {cart.map((ele, index) => {
+      {cart.content.map((ele, index) => {
         return (
           <div key={ele.id}>
-            <p>{ele.name}</p>
             <p>{ele.price}</p>
             <p>{ele.number}</p>
             <button>+</button>
