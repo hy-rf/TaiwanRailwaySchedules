@@ -8,9 +8,9 @@ export async function generateMetadata(
   { params }: Props,
   parent: ResolvingMetadata
 ): Promise<Metadata> {
-  // TODO: fetch from backend
   return {
-    title: params.id,
+    title: "test post title id : " + params.id,
+    description: "test post content id : " + params.id,
   };
 }
 export default function Post({ params }: any) {

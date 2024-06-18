@@ -19,7 +19,6 @@ export default function RootLayout({
       <head>
         <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Self Pace</title>
       </head>
       <body>
         <nav className="bg-white border-gray-300 dark:bg-gray-500">

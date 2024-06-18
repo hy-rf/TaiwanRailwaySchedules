@@ -1,3 +1,18 @@
+import type { Metadata, ResolvingMetadata } from "next";
+type Props = {
+  params: {
+    id: string;
+  };
+};
+export async function generateMetadata(
+  { params }: Props,
+  parent: ResolvingMetadata
+): Promise<Metadata> {
+  return {
+    title: "User",
+    description: "User",
+  };
+}
 export default function User() {
   return (
     <>
