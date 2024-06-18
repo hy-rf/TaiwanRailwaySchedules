@@ -58,6 +58,22 @@ export default function RootLayout({
                   user
                 </a>
               </li>
+              <li>
+                <a
+                  className="block py-2 px-3 text-gray-900 rounded dark:text-white"
+                  href="/market"
+                >
+                  market
+                </a>
+              </li>
+              <li>
+                <a
+                  className="block py-2 px-3 text-gray-900 rounded dark:text-white"
+                  href="/market/cart"
+                >
+                  cart
+                </a>
+              </li>
             </ul>
           </div>
         </nav>

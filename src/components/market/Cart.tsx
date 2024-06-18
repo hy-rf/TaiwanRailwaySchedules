@@ -1,4 +1,4 @@
-"use client";
+// "use client";
 import type typeCart from "@/type/Cart";
 import { useState } from "react";
 function getCart(): typeCart {
