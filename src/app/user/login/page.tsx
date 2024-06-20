@@ -9,12 +9,15 @@ export default function Login() {
         <GoogleLogin
           onSuccess={(tokenResponse) => {
             console.log(tokenResponse);
-            axios("http://localhost:8080/user/login", {
-              method: "post",
-              headers: {
-                Authorization: tokenResponse.credential,
-              },
-            });
+            axios(
+              "https://self-pace-backend-dot-phrasal-clover-408902.de.r.appspot.com/user/login",
+              {
+                method: "post",
+                headers: {
+                  Authorization: tokenResponse.credential,
+                },
+              }
+            );
           }}
         ></GoogleLogin>
       </GoogleOAuthProvider>
