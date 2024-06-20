@@ -10,7 +10,7 @@ export default function Login() {
           onSuccess={(tokenResponse) => {
             console.log(tokenResponse);
             axios(
-              "https://self-pace-backend-dot-phrasal-clover-408902.de.r.appspot.com/user/login",
+              "https://self-pace-backend-dot-phrasal-clover-408902.de.r.appspot.com/login",
               {
                 method: "post",
                 headers: {
