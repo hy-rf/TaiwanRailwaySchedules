@@ -1,7 +1,8 @@
 "use client";
 import { GoogleLogin, GoogleOAuthProvider } from "@react-oauth/google";
 import axios from "axios";
-
+let url =
+  "https://self-pace-backend-dot-phrasal-clover-408902.de.r.appspot.com";
 export default function Login() {
   return (
     <>
@@ -9,15 +10,12 @@ export default function Login() {
         <GoogleLogin
           onSuccess={(tokenResponse) => {
             console.log(tokenResponse);
-            axios(
-              "https://self-pace-backend-dot-phrasal-clover-408902.de.r.appspot.com/login",
-              {
-                method: "post",
-                headers: {
-                  Authorization: tokenResponse.credential,
-                },
-              }
-            );
+            axios("http://localhost:8080/login", {
+              method: "post",
+              headers: {
+                Authorization: tokenResponse.credential,
+              },
+            });
           }}
         ></GoogleLogin>
       </GoogleOAuthProvider>
