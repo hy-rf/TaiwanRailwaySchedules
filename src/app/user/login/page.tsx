@@ -9,7 +9,6 @@ export default function Login() {
       <GoogleOAuthProvider clientId="496489862453-8ka1nrk1hi6m68vs37bl79utffnub1i7.apps.googleusercontent.com">
         <GoogleLogin
           onSuccess={async (tokenResponse) => {
-            console.log(tokenResponse);
             const res = await axios(`${url}/login`, {
               method: "post",
               headers: {
@@ -17,7 +16,6 @@ export default function Login() {
               },
               withCredentials: true,
             });
-            localStorage.setItem("token", res.data.token);
           }}
         ></GoogleLogin>
       </GoogleOAuthProvider>
