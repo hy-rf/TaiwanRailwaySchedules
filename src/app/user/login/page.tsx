@@ -10,7 +10,7 @@ export default function Login() {
         <GoogleLogin
           onSuccess={(tokenResponse) => {
             console.log(tokenResponse);
-            axios("http://localhost:8080/login", {
+            axios(`${url}/login`, {
               method: "post",
               headers: {
                 Authorization: tokenResponse.credential,
