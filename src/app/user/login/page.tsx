@@ -15,6 +15,7 @@ export default function Login() {
               headers: {
                 Authorization: tokenResponse.credential,
               },
+              withCredentials: true,
             });
           }}
         ></GoogleLogin>
