@@ -1,3 +1,4 @@
+import axios from "axios";
 import type { Metadata, ResolvingMetadata } from "next";
 type Props = {
   params: {
@@ -8,9 +9,16 @@ export async function generateMetadata(
   { params }: Props,
   parent: ResolvingMetadata
 ): Promise<Metadata> {
+  const post = await axios(
+    `https://self-pace-backend-dot-phrasal-clover-408902.de.r.appspot.com/post/${[
+      params.id,
+    ]}`
+  );
+  let title = post.data.payload.title;
+  let content = post.data.payload.content;
   return {
-    title: "test post title id : " + params.id,
-    description: "test post content id : " + params.id,
+    title: title,
+    description: content,
   };
 }
 export default function Post({ params }: any) {
