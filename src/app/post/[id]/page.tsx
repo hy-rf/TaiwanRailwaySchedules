@@ -9,11 +9,7 @@ export async function generateMetadata(
   { params }: Props,
   parent: ResolvingMetadata
 ): Promise<Metadata> {
-  const post = await axios(
-    `https://self-pace-backend-dot-phrasal-clover-408902.de.r.appspot.com/post/${[
-      params.id,
-    ]}`
-  );
+  const post = await axios(`${process.env.URL}/post/${[params.id]}`);
   let title = post.data.payload.title;
   let content = post.data.payload.content;
   return {
