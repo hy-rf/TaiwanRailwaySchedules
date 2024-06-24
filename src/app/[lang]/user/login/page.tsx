@@ -8,7 +8,7 @@ export default function Login() {
         <GoogleLogin
           onSuccess={async (tokenResponse) => {
             const res = await axios(
-              `https://self-pace-dot-phrasal-clover-408902.de.r.appspot.com/login`,
+              `https://self-pace-backend-dot-phrasal-clover-408902.de.r.appspot.com/login`,
               {
                 method: "post",
                 headers: {
