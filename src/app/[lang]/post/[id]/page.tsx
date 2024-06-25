@@ -9,8 +9,8 @@ export async function generateMetadata(
   { params }: Props,
   parent: ResolvingMetadata
 ): Promise<Metadata> {
-  const post = await axios(`${process.env.URL}/post/${[params.id]}`);
-  let title = post.data.payload.title;
+  const post = await axios(`${process.env.BACKEND_URL}/post/${[params.id]}`);
+  let title = `id: ${post.data.payload.id} and title: ${post.data.payload.title}`;
   let content = post.data.payload.content;
   return {
     title: title,
