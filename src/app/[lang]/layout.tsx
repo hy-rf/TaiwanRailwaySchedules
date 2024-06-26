@@ -13,8 +13,6 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  console.log(process.env.BACKEND_URL);
-
   return (
     <html lang="en">
       <head>
