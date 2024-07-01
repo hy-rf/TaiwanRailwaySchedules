@@ -9,7 +9,7 @@ export async function generateMetadata(
   { params }: Props,
   parent: ResolvingMetadata
 ): Promise<Metadata> {
-  const post = await axios(`${process.env.BACKEND_URL}/post/${[params.id]}`);
+  const post = await getPostById(parseInt(params.id));
   let title = `id: ${post.data.payload.id} and title: ${post.data.payload.title}`;
   let content = post.data.payload.content;
   return {
@@ -17,13 +17,21 @@ export async function generateMetadata(
     description: content,
   };
 }
-export default function Post({ params }: any) {
+async function getPostById(id: number) {
+  return await axios(`${process.env.NEXT_PUBLIC_BACKEND_URL}/post/${id}`);
+}
+export default async function Post({ params }: any) {
+  const post = (await getPostById(parseInt(params.id))).data.payload;
   return (
     <>
-      <a href="/post">go to post</a>
-      <h3 className="text-3xl font-bold underline">
-        this is post with id: {params.id}
-      </h3>
+      <a href="/post">go back to post list</a>
+      <h5 className="text-3x1 font-bold underline">
+        server generated id: {params.id}
+      </h5>
+      <h5 className="text-3 font-bold underline">
+        server generated title: {post.title}
+      </h5>
+      <p>server generated content: {post.content}</p>
     </>
   );
 }
