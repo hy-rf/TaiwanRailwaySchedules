@@ -24,7 +24,7 @@ async function getMe() {
   });
   console.log(res);
 }
-export default function User(req: NextRequest) {
+export default function User() {
   getMe();
   return (
     <>
