@@ -1,1 +1,1 @@
-gcloud app deploy
+gcloud app deploy --no-cache
