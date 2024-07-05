@@ -22,13 +22,15 @@ async function getMe() {
       Authorization: cookies().get("token")?.value || "",
     },
   });
-  console.log(res);
+  return res.data;
 }
-export default function User() {
-  getMe();
+export default async function User() {
+  const userData = await getMe();
   return (
     <>
       <h3 className="text-3xl font-bold underline">User</h3>
+      <p>created: {userData.created}</p>
+      <p>last time login: {userData.lastlogin}</p>
     </>
   );
 }
