@@ -1,6 +1,6 @@
 "use client";
 import { GoogleLogin, GoogleOAuthProvider } from "@react-oauth/google";
-import axios from "axios";
+// import axios from "axios";
 export default function Login({ params }: any) {
   return (
     <>
@@ -10,14 +10,14 @@ export default function Login({ params }: any) {
       <GoogleOAuthProvider clientId="496489862453-8ka1nrk1hi6m68vs37bl79utffnub1i7.apps.googleusercontent.com">
         <GoogleLogin
           onSuccess={async (tokenResponse) => {
-            const res = await axios(
+            const res = await fetch(
               `${process.env.NEXT_PUBLIC_BACKEND_URL}/login`,
               {
                 method: "post",
                 headers: {
-                  Authorization: tokenResponse.credential,
+                  Authorization: tokenResponse.credential || "",
                 },
-                withCredentials: true,
+                credentials: "include",
               }
             );
           }}
