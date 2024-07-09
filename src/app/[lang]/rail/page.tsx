@@ -1,5 +1,6 @@
 "use client";
 
+import NearStation from "@/components/rail/NearStation";
 import TimeBoard from "@/type/rail/TimeBoard";
 import { useEffect, useState } from "react";
 
@@ -17,6 +18,7 @@ export default function Page() {
 
   return (
     <div className="p-1">
+      <NearStation />
       <input
         type="text"
         placeholder="station id"
