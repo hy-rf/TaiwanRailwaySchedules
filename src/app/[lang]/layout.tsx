@@ -30,8 +30,8 @@ export default async function RootLayout({
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </head>
       <body>
-        <nav className="bg-white border-gray-300 dark:bg-gray-500">
-          <div className="flex flex-wrap items-center justify-between p-0 mx-auto">
+        <nav className="fixed bottom-0 w-dvw">
+          <div className="bg-gray-500 flex items-center justify-between bottom-0">
             <a href="/">
               <img
                 src="/logo.png"

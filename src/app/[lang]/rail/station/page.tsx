@@ -11,14 +11,7 @@ export default async function Page({ searchParams }: any) {
   ).json();
   return (
     <>
-      <b
-        style={{
-          fontSize: "1.2rem",
-          fontStyle: "-moz-initial",
-        }}
-      >
-        {timeBoard[0].StationName.Zh_tw} 開
-      </b>
+      <b className="text-xl antialiased">{timeBoard[0].StationName.Zh_tw} 開</b>
       {timeBoard.map((ele: TimeBoard, index: number) => {
         return (
           <div className="p-3" key={ele.TrainNo}>
