@@ -8,7 +8,6 @@ async function getTimeBoard(StationID: string) {
   const data = fetch(
     `${process.env.NEXT_PUBLIC_BACKEND_URL}/rail/timeboard/${StationID}`
   );
-
   return data;
 }
 
