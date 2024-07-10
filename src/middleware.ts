@@ -1,7 +1,7 @@
 import { NextResponse, NextRequest } from "next/server";
 import { match as matchLocale } from "@formatjs/intl-localematcher";
 import Negotiator from "negotiator";
-let locales = ["en-US", "zh-TW"];
+let locales = ["en-US", "zh-TW", "zh-CN"];
 // Get the preferred locale, similar to the above or using a library
 function getLocale(request: NextRequest) {
   const negotiatorHeaders: Record<string, string> = {};
