@@ -28,6 +28,17 @@ export default async function RootLayout({
       <head>
         <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link
+          rel="stylesheet"
+          href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+          integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+          crossOrigin=""
+        />
+        <script
+          src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+          integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+          crossOrigin=""
+        ></script>
       </head>
       <body>
         <nav className="fixed bottom-0 w-dvw">
@@ -48,6 +59,7 @@ export default async function RootLayout({
               <NavOpt href="/rail" text={dict.nav.rail}></NavOpt>
               <NavOpt href="/metro" text={dict.nav.metro}></NavOpt>
               <NavOpt href="/bus" text={dict.nav.bus}></NavOpt>
+              <NavOpt href="/map" text={dict.nav.map}></NavOpt>
             </ul>
           </div>
         </nav>
