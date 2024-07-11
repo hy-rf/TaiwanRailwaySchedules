@@ -17,18 +17,25 @@ export async function generateMetadata(
   };
 }
 async function getMe() {
-  const res = await axios.get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/user`, {
+  try{
+    const res = await axios.get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/user`, {
     headers: {
       Authorization: cookies().get("token")?.value || "",
     },
   });
   return res.data;
+  }
+  catch{
+    return ""
+  }
 }
 export default async function User() {
   const userData = await getMe();
+  if(userData===""){
+    return <><p>fail to get user data</p></>
+  }
   return (
     <>
-      <h3 className="text-3xl font-bold underline">User</h3>
       <p>created: {userData.created}</p>
       <p>last time login: {userData.lastlogin}</p>
     </>
