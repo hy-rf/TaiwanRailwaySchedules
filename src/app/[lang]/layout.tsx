@@ -51,7 +51,7 @@ export default async function RootLayout({
                 className="m-0 p-0 ml-2"
               ></img>
             </a>
-            <ul className="font-medium flex p-1 mt-0 border border-gray-100 rounded-lg bg-gray-50 rtl:space-x-reverse bg-gray-800 border-gray-700 mt-2 m-2">
+            <ul className="font-medium flex p-1 mt-0 mr-10 border border-gray-100 rounded-lg bg-gray-50 rtl:space-x-reverse bg-gray-800 border-gray-700 mt-2 m-2">
               {/* <NavOpt
                 href={loggedin ? "/user" : "/user/login"}
                 text="User"
@@ -63,8 +63,7 @@ export default async function RootLayout({
             </ul>
           </div>
         </nav>
-
-        {children}
+        <main className="mt-1 ml-1 mr-1 mb-16">{children}</main>
       </body>
     </html>
   );
