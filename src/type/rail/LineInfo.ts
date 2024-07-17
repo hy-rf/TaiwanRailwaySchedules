@@ -5,4 +5,5 @@ export default interface LineInfo {
   TrainDate: string;
   DailyTrainInfo: DailyTrainInfo;
   StopTimes: Array<StopTime>;
+  DelayTime: number;
 }
