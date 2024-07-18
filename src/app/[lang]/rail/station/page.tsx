@@ -1,17 +1,22 @@
 import TimeBoard from "@/type/rail/TimeBoard";
+import { getDictionary } from "../../dictionaries";
 async function getTimeBoard(StationID: string) {
   const data = fetch(
     `${process.env.NEXT_PUBLIC_BACKEND_URL}/rail/timeboard/${StationID}`
   );
   return data;
 }
-export default async function Page({ searchParams }: any) {
+export default async function Page({ params, searchParams }: any) {
   const timeBoard: Array<TimeBoard> = await (
     await getTimeBoard(searchParams.sid)
   ).json();
+  const dict = await getDictionary(params.lang);
   return (
     <>
-      <b className="text-xl antialiased">{timeBoard[0].StationName.Zh_tw} 開</b>
+      <b className="text-xl antialiased">
+        {dict.main.rail.station.title}
+        {timeBoard[0].StationName.Zh_tw}
+      </b>
       {timeBoard.map((ele: TimeBoard, index: number) => {
         return (
           <div className="p-3" key={ele.TrainNo}>

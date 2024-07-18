@@ -4,5 +4,12 @@
     "metro": "Metro",
     "bus": "Bus",
     "map": "Map"
+  },
+  "main": {
+    "rail": {
+      "station": {
+        "title": "Station: "
+      }
+    }
   }
 }

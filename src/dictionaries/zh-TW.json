@@ -3,5 +3,12 @@
     "rail": "鐵路",
     "metro": "捷運",
     "bus": "公車"
+  },
+  "main": {
+    "rail": {
+      "station": {
+        "title": "車站："
+      }
+    }
   }
 }
