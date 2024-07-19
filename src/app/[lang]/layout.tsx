@@ -78,8 +78,8 @@ export default async function RootLayout({
                 text="User"
               ></NavOpt> */}
               <NavOpt href="/rail" text={dict.nav.rail}></NavOpt>
-              <NavOpt href="/metro" text={dict.nav.metro}></NavOpt>
-              <NavOpt href="/bus" text={dict.nav.bus}></NavOpt>
+              {/* <NavOpt href="/metro" text={dict.nav.metro}></NavOpt>
+              <NavOpt href="/bus" text={dict.nav.bus}></NavOpt> */}
             </ul>
           </div>
         </nav>
