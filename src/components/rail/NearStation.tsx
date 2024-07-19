@@ -30,9 +30,16 @@ export default function NearStation() {
       })();
     });
   }, []);
+  if (nearStations == undefined) {
+    return (
+      <>
+        <b className="text-xl antialiased">取得最近車站中。。。</b>
+      </>
+    );
+  }
   return (
     <>
-      <h3>最近車站</h3>
+      <b className="text-xl antialiased">最近車站</b>
       {nearStations?.map((ele, index) => {
         return (
           <div key={index}>

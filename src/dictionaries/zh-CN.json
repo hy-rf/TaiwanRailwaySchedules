@@ -7,10 +7,10 @@
   "main": {
     "rail": {
       "station": {
-        "title": "車站："
+        "title": "车站："
       },
       "line": {
-        "title": "線路："
+        "title": "线路："
       }
     }
   }

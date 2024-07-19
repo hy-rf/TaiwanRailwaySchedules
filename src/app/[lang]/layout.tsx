@@ -83,7 +83,7 @@ export default async function RootLayout({
             </ul>
           </div>
         </nav>
-        <main className="mt-1 ml-1 mr-1 mb-16">{children}</main>
+        <main className="mt-3 ml-3 mr-3 mb-16">{children}</main>
       </body>
     </html>
   );

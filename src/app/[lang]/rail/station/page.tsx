@@ -33,6 +33,10 @@ export default async function Page({ params, searchParams }: any) {
               </a>
             </p>
             <p>
+              方向：{ele.Direction == 0 && <span>北上</span>}
+              {ele.Direction == 1 && <span>南下</span>}
+            </p>
+            <p>
               往:{" "}
               <a
                 href={`/rail/station?sid=${ele.EndingStationID}`}
@@ -44,15 +48,15 @@ export default async function Page({ params, searchParams }: any) {
                 {ele.EndingStationName.Zh_tw}
               </a>
             </p>
-            <span>到達時間: {ele.ScheduledArrivalTime.slice(0, -3)}</span>&nbsp;
-            <span>離站時間: {ele.ScheduledDepartureTime.slice(0, -3)}</span>
+            <span>到達時間：{ele.ScheduledArrivalTime.slice(0, -3)}</span>&nbsp;
+            <span>離站時間：{ele.ScheduledDepartureTime.slice(0, -3)}</span>
             &nbsp;
             <span
               style={{
                 color: "red",
               }}
             >
-              延遲時間: {ele.DelayTime}分
+              延遲時間：{ele.DelayTime}分
             </span>
             <p
               style={{

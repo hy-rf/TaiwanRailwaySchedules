@@ -7,11 +7,11 @@ async function getTodayLineStops(LineID: string) {
   );
   return data;
 }
-export default async function Page({ searchParams }: any) {
+export default async function Page({ params, searchParams }: any) {
   const lineInfo: Array<LineInfo> = await (
     await getTodayLineStops(searchParams.tn)
   ).json();
-  const dict = await getDictionary();
+  const dict = await getDictionary(params.lang);
   return (
     <>
       <b className="text-xl antialiased">
