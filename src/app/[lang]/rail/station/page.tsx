@@ -11,6 +11,16 @@ export default async function Page({ params, searchParams }: any) {
     await getTimeBoard(searchParams.sid)
   ).json();
   const dict = await getDictionary(params.lang);
+  if (timeBoard.length == 0) {
+    return (
+      <>
+        <b className="text-xl antialiased">
+          {dict.main.rail.station.title}
+          No train
+        </b>
+      </>
+    );
+  }
   return (
     <>
       <b className="text-xl antialiased">

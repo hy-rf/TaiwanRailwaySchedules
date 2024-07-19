@@ -12,6 +12,16 @@ export default async function Page({ params, searchParams }: any) {
     await getTodayLineStops(searchParams.tn)
   ).json();
   const dict = await getDictionary(params.lang);
+  if (lineInfo.length == 0) {
+    return (
+      <>
+        <b className="text-xl antialiased">
+          {dict.main.rail.line.title}
+          Not running
+        </b>
+      </>
+    );
+  }
   return (
     <>
       <b className="text-xl antialiased">
