@@ -8,6 +8,9 @@
     "rail": {
       "station": {
         "title": "車站："
+      },
+      "line": {
+        "title": "線路："
       }
     }
   }

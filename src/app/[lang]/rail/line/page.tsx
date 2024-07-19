@@ -1,5 +1,6 @@
 import LineInfo from "@/type/rail/LineInfo";
 import StopTime from "@/type/rail/StopTime";
+import { getDictionary } from "../../dictionaries";
 async function getTodayLineStops(LineID: string) {
   const data = fetch(
     `${process.env.NEXT_PUBLIC_BACKEND_URL}/rail/line/${LineID}`
@@ -10,11 +11,13 @@ export default async function Page({ searchParams }: any) {
   const lineInfo: Array<LineInfo> = await (
     await getTodayLineStops(searchParams.tn)
   ).json();
+  const dict = await getDictionary();
   return (
     <>
-      <h3 className="text-xl antialiased">
-        車號：{lineInfo[0].DailyTrainInfo.TrainNo}
-      </h3>
+      <b className="text-xl antialiased">
+        {dict.main.rail.line.title}
+        {lineInfo[0].DailyTrainInfo.TrainNo}
+      </b>
       <p>延遲時間：{lineInfo[0].DelayTime}分</p>
       <h3 className="text-xl antialiased">
         車種：{lineInfo[0].DailyTrainInfo.TrainTypeName.Zh_tw}

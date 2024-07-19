@@ -2,13 +2,15 @@
   "nav": {
     "rail": "Rail",
     "metro": "Metro",
-    "bus": "Bus",
-    "map": "Map"
+    "bus": "Bus"
   },
   "main": {
     "rail": {
       "station": {
         "title": "Station: "
+      },
+      "line": {
+        "title": "Line: "
       }
     }
   }
