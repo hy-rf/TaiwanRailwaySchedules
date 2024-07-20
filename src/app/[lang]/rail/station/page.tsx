@@ -1,4 +1,4 @@
-import TimeBoard from "@/type/rail/TimeBoard";
+import TimeBoard from "@/type/rail/station/TimeBoard";
 import { getDictionary } from "../../dictionaries";
 async function getTimeBoard(StationID: string) {
   const data = fetch(

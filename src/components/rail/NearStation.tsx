@@ -1,9 +1,9 @@
 "use client";
-import TRAStationInfo from "@/type/rail/TRAStationInfo";
+// import TRAStationInfo from "@/type/rail/station/TRAStationInfo";
 import geohash from "ngeohash";
 import { useEffect, useState } from "react";
 async function getNearStations(geoHash: string) {
-  const stations: Array<TRAStationInfo> = await fetch(
+  const stations: Array<any> = await fetch(
     `${process.env.NEXT_PUBLIC_BACKEND_URL}/rail/station`
   ).then((res) => res.json());
   let nearStations: any[] = [];
@@ -20,7 +20,7 @@ async function getNearStations(geoHash: string) {
   return nearStations;
 }
 export default function NearStation() {
-  const [nearStations, setNearStations] = useState<Array<TRAStationInfo>>();
+  const [nearStations, setNearStations] = useState<Array<any>>();
   useEffect(() => {
     navigator.geolocation.getCurrentPosition((p) => {
       const geoHash = geohash.encode(p.coords.latitude, p.coords.longitude);

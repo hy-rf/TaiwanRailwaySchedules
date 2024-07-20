@@ -1,7 +1,7 @@
 "use client";
 
-import NearStation from "@/components/rail/NearStation";
-import TimeBoard from "@/type/rail/TimeBoard";
+import LineInfoClient from "@/components/rail/LineInfoClient";
+import TimeBoard from "@/type/rail/station/TimeBoard";
 import { useEffect, useState } from "react";
 
 async function getTimeBoard(StationID: string) {
@@ -17,7 +17,7 @@ export default function Page() {
 
   return (
     <div className="p-1">
-      <NearStation />
+      <LineInfoClient />
     </div>
   );
 }

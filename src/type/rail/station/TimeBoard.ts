@@ -1,5 +1,5 @@
-import StationName from "./StationName";
-import TrainTypeName from "./TrainTypeName";
+import StationName from "../other/StationName";
+import TrainTypeName from "../other/TrainTypeName";
 
 export default interface TimeBoard {
   StationID: string;

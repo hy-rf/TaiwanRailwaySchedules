@@ -1,6 +1,6 @@
 "use client";
-import LineInfo from "@/type/rail/LineInfo";
-import StopTime from "@/type/rail/StopTime";
+import LineInfo from "@/type/rail/line/LineInfo";
+import StopTime from "@/type/rail/line/StopTime";
 import { useEffect, useState } from "react";
 async function getTodayLineStops(LineID: string) {
   const data = fetch(

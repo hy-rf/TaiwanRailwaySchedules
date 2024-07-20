@@ -1,7 +1,5 @@
 import LineInfoClient from "@/components/rail/LineInfoClient";
-import NearStation from "@/components/rail/NearStation";
-import TimeBoard from "@/type/rail/TimeBoard";
-import { useEffect, useState } from "react";
+// import NearStation from "@/components/rail/NearStation";
 
 export const revalidate = 0;
 export default function Page() {

@@ -1,4 +1,4 @@
-import StationName from "./StationName";
+import StationName from "../other/StationName";
 
 export default interface StopTime {
   StopSequence: number;

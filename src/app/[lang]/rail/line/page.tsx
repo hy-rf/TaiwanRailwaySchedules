@@ -1,5 +1,5 @@
-import LineInfo from "@/type/rail/LineInfo";
-import StopTime from "@/type/rail/StopTime";
+import LineInfo from "@/type/rail/line/LineInfo";
+import StopTime from "@/type/rail/line/StopTime";
 import { getDictionary } from "../../dictionaries";
 async function getTodayLineStops(LineID: string) {
   const data = fetch(
