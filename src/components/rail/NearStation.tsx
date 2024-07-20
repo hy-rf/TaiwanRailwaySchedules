@@ -37,6 +37,13 @@ export default function NearStation() {
       </>
     );
   }
+  if (nearStations.length == 0) {
+    return (
+      <>
+        <b className="text-xl antialiased">取得最近車站失敗。。。</b>
+      </>
+    );
+  }
   return (
     <>
       <b className="text-xl antialiased">最近車站</b>
