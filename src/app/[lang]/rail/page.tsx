@@ -11,14 +11,13 @@ async function getTimeBoard(StationID: string) {
   );
   return data;
 }
-
+export const revalidate = 0;
 export default function Page() {
   const [station, setStation] = useState("");
   const [timeBoard, setTimeBoard]: [Array<TimeBoard>, any] = useState([]);
 
   return (
     <div className="p-1">
-      {/* <NearStation /> */}
       <LineInfoClient />
       <p></p>
     </div>
