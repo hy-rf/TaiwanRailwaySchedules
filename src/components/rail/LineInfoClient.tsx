@@ -1,3 +1,4 @@
+"use client";
 import LineInfo from "@/type/rail/LineInfo";
 import StopTime from "@/type/rail/StopTime";
 import { useEffect, useState } from "react";
@@ -8,22 +9,25 @@ async function getTodayLineStops(LineID: string) {
   return data;
 }
 export default function LineInfoClient({ params, searchParams }: any) {
+  const [inputValue, setInputValue] = useState("");
   const [trainNo, setTrainNo] = useState("");
   const [lineInfo, setLineInfo] = useState<Array<LineInfo>>();
-  useEffect(() => {
-    getTodayLineStops(trainNo)
-      .then((ret) => ret.json())
-      .then((ret) => {
-        setLineInfo(ret);
-      });
-    console.log("success");
-  }, []);
 
-  if (lineInfo != undefined)
+  if (lineInfo != undefined) {
     return (
       <>
-        <input type="text" name="" id="" value={trainNo} />
-        <button>get data</button>
+        <input onChange={(e) => setTrainNo(e.target.value)} />
+        <button
+          onClick={() => {
+            getTodayLineStops(trainNo)
+              .then((ret) => ret.json())
+              .then((ret) => {
+                setLineInfo(ret);
+              });
+          }}
+        >
+          get data
+        </button>
         {lineInfo.length == 0 && (
           <>
             <b className="text-xl antialiased">線路： Not running</b>
@@ -88,4 +92,22 @@ export default function LineInfoClient({ params, searchParams }: any) {
         )}
       </>
     );
+  } else {
+    return (
+      <>
+        <input onChange={(e) => setTrainNo(e.target.value)} />
+        <button
+          onClick={() => {
+            getTodayLineStops(trainNo)
+              .then((ret) => ret.json())
+              .then((ret) => {
+                setLineInfo(ret);
+              });
+          }}
+        >
+          get data
+        </button>
+      </>
+    );
+  }
 }
