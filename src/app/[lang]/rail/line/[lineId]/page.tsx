@@ -27,7 +27,12 @@ export default async function Page({ params }: any) {
         {dict.main.rail.line.title}
         {lineInfo[0].DailyTrainInfo.TrainNo}
       </b>
-      <p>延遲時間：{lineInfo[0].DelayTime}分</p>
+      {lineInfo[0].DelayTime === -1 && (
+        <p>延遲時間：請求過於頻繁，請稍後再試。</p>
+      )}
+      {lineInfo[0].DelayTime !== -1 && (
+        <p>延遲時間：{lineInfo[0].DelayTime}分</p>
+      )}
       <h3 className="text-xl antialiased">
         車種：{lineInfo[0].DailyTrainInfo.TrainTypeName.Zh_tw}
       </h3>

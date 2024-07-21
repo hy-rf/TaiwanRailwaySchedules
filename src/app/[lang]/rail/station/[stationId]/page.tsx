@@ -11,8 +11,6 @@ async function getTimeBoard(StationID: string) {
 export default async function Page({ params }: any) {
   const timeBoard: Array<TimeBoard> = await getTimeBoard(params.stationId);
   const dict = await getDictionary(params.lang);
-  console.log(timeBoard);
-
   if (timeBoard.length == 0) {
     return (
       <>
@@ -20,6 +18,13 @@ export default async function Page({ params }: any) {
           {dict.main.rail.station.title}
           No train
         </b>
+      </>
+    );
+  }
+  if (timeBoard.length == undefined) {
+    return (
+      <>
+        <b className="text-xl antialiased">請求過於頻繁，請稍後再試。</b>
       </>
     );
   }
