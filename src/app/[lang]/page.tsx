@@ -1,13 +1,18 @@
-"use client";
-
-import LineInfoClient from "@/components/rail/LineInfoClient";
-import TimeBoard from "@/type/rail/station/TimeBoard";
-import { useEffect, useState } from "react";
-
 export default function Page() {
+  const utc8TimeNow: string = new Date().toLocaleString("en-US", {
+    timeZone: "Asia/Taipei",
+    // hour12: false,
+    hourCycle: "h23",
+  });
+  console.log(utc8TimeNow);
   return (
     <div className="p-1">
-      <p>Home</p>
+      <p>TaipeiTime: {utc8TimeNow}</p>
+      <input type="text" id="cardNumber" />
+      <input type="text" id="cardHolder" />
+      <input type="text" id="cardExpirationMonth" />
+      <input type="text" id="cardExpirationYear" />
+      <input type="text" id="cardCsc" />
     </div>
   );
 }
