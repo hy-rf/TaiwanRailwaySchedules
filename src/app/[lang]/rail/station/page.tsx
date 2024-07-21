@@ -1,15 +1,14 @@
 import TimeBoard from "@/type/rail/station/TimeBoard";
 import { getDictionary } from "../../dictionaries";
+import StationLink from "@/components/rail/StationLink";
+import axios from "axios";
 async function getTimeBoard(StationID: string) {
-  const data = fetch(
+  return await axios(
     `${process.env.NEXT_PUBLIC_BACKEND_URL}/rail/timeboard/${StationID}`
-  );
-  return data;
+  ).then((ret) => ret.data);
 }
 export default async function Page({ params, searchParams }: any) {
-  const timeBoard: Array<TimeBoard> = await (
-    await getTimeBoard(searchParams.sid)
-  ).json();
+  const timeBoard: Array<TimeBoard> = await getTimeBoard(searchParams.sid);
   const dict = await getDictionary(params.lang);
   if (timeBoard.length == 0) {
     return (
@@ -48,15 +47,10 @@ export default async function Page({ params, searchParams }: any) {
             </p>
             <p>
               往:{" "}
-              <a
-                href={`/rail/station?sid=${ele.EndingStationID}`}
-                style={{
-                  color: "blue",
-                  textDecoration: "underline",
-                }}
-              >
-                {ele.EndingStationName.Zh_tw}
-              </a>
+              <StationLink
+                stationId={ele.EndingStationID}
+                stationName={ele.EndingStationName.Zh_tw}
+              />
             </p>
             <span>到達時間：{ele.ScheduledArrivalTime.slice(0, -3)}</span>&nbsp;
             <span>離站時間：{ele.ScheduledDepartureTime.slice(0, -3)}</span>

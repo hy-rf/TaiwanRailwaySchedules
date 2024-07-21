@@ -1,6 +1,7 @@
 import LineInfo from "@/type/rail/line/LineInfo";
 import StopTime from "@/type/rail/line/StopTime";
 import { getDictionary } from "../../dictionaries";
+import StationLink from "@/components/rail/StationLink";
 async function getTodayLineStops(LineID: string) {
   const data = fetch(
     `${process.env.NEXT_PUBLIC_BACKEND_URL}/rail/line/${LineID}`
@@ -34,27 +35,17 @@ export default async function Page({ params, searchParams }: any) {
       </h3>
       <p className="text-x antialiased">
         起程站：{" "}
-        <a
-          href={`/rail/station?sid=${lineInfo[0].DailyTrainInfo.StartingStationID}`}
-          style={{
-            color: "blue",
-            textDecoration: "underline",
-          }}
-        >
-          {lineInfo[0].DailyTrainInfo.StartingStationName.Zh_tw}
-        </a>
+        <StationLink
+          stationId={lineInfo[0].DailyTrainInfo.StartingStationID}
+          stationName={lineInfo[0].DailyTrainInfo.StartingStationName.Zh_tw}
+        />
       </p>
       <p className="text-x antialiased">
         終點站：{" "}
-        <a
-          href={`/rail/station?sid=${lineInfo[0].DailyTrainInfo.EndingStationID}`}
-          style={{
-            color: "blue",
-            textDecoration: "underline",
-          }}
-        >
-          {lineInfo[0].DailyTrainInfo.EndingStationName.Zh_tw}
-        </a>
+        <StationLink
+          stationId={lineInfo[0].DailyTrainInfo.EndingStationID}
+          stationName={lineInfo[0].DailyTrainInfo.EndingStationName.Zh_tw}
+        />
       </p>
       {lineInfo[0].StopTimes.map((ele: StopTime, index: number) => {
         return (
@@ -62,14 +53,10 @@ export default async function Page({ params, searchParams }: any) {
             <p>第{ele.StopSequence}站</p>
             <p>
               站名：{" "}
-              <a
-                style={{
-                  color: "blue",
-                }}
-                href={`/rail/station?sid=${ele.StationID}`}
-              >
-                {ele.StationName.Zh_tw}
-              </a>
+              <StationLink
+                stationId={ele.StationID}
+                stationName={ele.StationName.Zh_tw}
+              />
             </p>
             <p> 站號：{ele.StationID}</p>
             <p>到達時間：{ele.ArrivalTime}</p>
