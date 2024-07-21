@@ -42,7 +42,6 @@ export default async function RootLayout({
   const dict = await getDictionary(params.lang);
 
   const loggedin: boolean = cookie.get("token") != undefined;
-  console.log(loggedin);
 
   return (
     <html lang="en">

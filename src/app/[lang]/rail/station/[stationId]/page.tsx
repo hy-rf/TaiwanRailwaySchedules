@@ -11,6 +11,8 @@ async function getTimeBoard(StationID: string) {
 export default async function Page({ params }: any) {
   const timeBoard: Array<TimeBoard> = await getTimeBoard(params.stationId);
   const dict = await getDictionary(params.lang);
+  console.log(timeBoard);
+
   if (timeBoard.length == 0) {
     return (
       <>
