@@ -1,17 +1,15 @@
 import LineInfo from "@/type/rail/line/LineInfo";
 import StopTime from "@/type/rail/line/StopTime";
-import { getDictionary } from "../../dictionaries";
+import { getDictionary } from "@/app/[lang]/dictionaries";
 import StationLink from "@/components/rail/StationLink";
+import axios from "axios";
 async function getTodayLineStops(LineID: string) {
-  const data = fetch(
+  return await axios(
     `${process.env.NEXT_PUBLIC_BACKEND_URL}/rail/line/${LineID}`
-  );
-  return data;
+  ).then((ret) => ret.data);
 }
-export default async function Page({ params, searchParams }: any) {
-  const lineInfo: Array<LineInfo> = await (
-    await getTodayLineStops(searchParams.tn)
-  ).json();
+export default async function Page({ params }: any) {
+  const lineInfo: Array<LineInfo> = await getTodayLineStops(params.lineId);
   const dict = await getDictionary(params.lang);
   if (lineInfo.length == 0) {
     return (

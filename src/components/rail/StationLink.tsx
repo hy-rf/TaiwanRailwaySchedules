@@ -11,7 +11,7 @@ export default function StationLink({
         color: "blue",
         textDecoration: "underline",
       }}
-      href={`/rail/station?sid=${stationId}`}
+      href={`/rail/station/${stationId}`}
     >
       {stationName}
     </a>

@@ -1,14 +1,15 @@
 import TimeBoard from "@/type/rail/station/TimeBoard";
-import { getDictionary } from "../../dictionaries";
+import { getDictionary } from "@/app/[lang]/dictionaries";
 import StationLink from "@/components/rail/StationLink";
 import axios from "axios";
+import LineLink from "@/components/rail/LineLink";
 async function getTimeBoard(StationID: string) {
   return await axios(
     `${process.env.NEXT_PUBLIC_BACKEND_URL}/rail/timeboard/${StationID}`
   ).then((ret) => ret.data);
 }
-export default async function Page({ params, searchParams }: any) {
-  const timeBoard: Array<TimeBoard> = await getTimeBoard(searchParams.sid);
+export default async function Page({ params }: any) {
+  const timeBoard: Array<TimeBoard> = await getTimeBoard(params.stationId);
   const dict = await getDictionary(params.lang);
   if (timeBoard.length == 0) {
     return (
@@ -30,16 +31,7 @@ export default async function Page({ params, searchParams }: any) {
         return (
           <div className="p-3" key={ele.TrainNo}>
             <p>
-              車號:{" "}
-              <a
-                href={`/rail/line?tn=${ele.TrainNo}`}
-                style={{
-                  color: "blue",
-                  textDecoration: "underline",
-                }}
-              >
-                {ele.TrainNo}
-              </a>
+              車號: <LineLink lineId={ele.TrainNo} />
             </p>
             <p>
               方向：{ele.Direction == 0 && <span>北上</span>}

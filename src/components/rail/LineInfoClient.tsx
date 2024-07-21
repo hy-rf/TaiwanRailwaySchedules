@@ -46,7 +46,7 @@ export default function LineInfoClient({ params, searchParams }: any) {
             <p className="text-x antialiased">
               起程站：{" "}
               <a
-                href={`/rail/station?sid=${lineInfo[0].DailyTrainInfo.StartingStationID}`}
+                href={`/rail/station/${lineInfo[0].DailyTrainInfo.StartingStationID}`}
                 style={{
                   color: "blue",
                   textDecoration: "underline",
@@ -58,7 +58,7 @@ export default function LineInfoClient({ params, searchParams }: any) {
             <p className="text-x antialiased">
               終點站：{" "}
               <a
-                href={`/rail/station?sid=${lineInfo[0].DailyTrainInfo.EndingStationID}`}
+                href={`/rail/station/${lineInfo[0].DailyTrainInfo.EndingStationID}`}
                 style={{
                   color: "blue",
                   textDecoration: "underline",
@@ -77,7 +77,7 @@ export default function LineInfoClient({ params, searchParams }: any) {
                       style={{
                         color: "blue",
                       }}
-                      href={`/rail/station?sid=${ele.StationID}`}
+                      href={`/rail/station/${ele.StationID}`}
                     >
                       {ele.StationName.Zh_tw}
                     </a>
