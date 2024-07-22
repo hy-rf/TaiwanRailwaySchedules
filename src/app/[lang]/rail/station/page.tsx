@@ -15,7 +15,6 @@ export default async function Page({ searchParams }: { searchParams: Prop }) {
   }
   return (
     <div className="p-1">
-      <p>get near 30 minutes train time by station</p>
       <GetStation city={searchParams.city} />
       <div
         style={{

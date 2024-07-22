@@ -21,6 +21,7 @@ export default function GetStation({ city }: { city: string }) {
       >
         go
       </button>
+      <hr />
     </>
   );
 }
