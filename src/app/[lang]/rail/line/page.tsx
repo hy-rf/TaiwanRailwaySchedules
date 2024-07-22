@@ -3,8 +3,7 @@ export const revalidate = 0;
 export default function Page() {
   return (
     <div className="p-1">
-      <a href="/rail/line">line</a>
-      <a href="/rail/station">station</a>
+      <LineInfoClient />
     </div>
   );
 }
