@@ -1,43 +1,58 @@
 import axios from "axios";
 import type { Metadata, ResolvingMetadata } from "next";
 import { cookies } from "next/headers";
-import { NextRequest } from "next/server";
+import { getDictionary } from "../dictionaries";
 type Props = {
-  params: {
-    id: string;
-  };
+  lang: string;
 };
-export async function generateMetadata(
-  { params }: Props,
-  parent: ResolvingMetadata
-): Promise<Metadata> {
+export async function generateMetadata(): Promise<Metadata> {
+  // TODO:get some user data from back end
   return {
     title: "User",
     description: "User",
   };
 }
 async function getMe() {
-  try{
-    const res = await axios.get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/user`, {
-    headers: {
-      Authorization: cookies().get("token")?.value || "",
-    },
-  });
-  return res.data;
-  }
-  catch{
-    return ""
+  try {
+    return await axios
+      .get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/user`, {
+        headers: {
+          Authorization: cookies().get("token")?.value || "",
+        },
+      })
+      .then((res) => res.data);
+  } catch {
+    return "";
   }
 }
-export default async function User() {
+export default async function User({ params }: { params: Props }) {
+  const dict = await getDictionary(params.lang);
   const userData = await getMe();
-  if(userData===""){
-    return <><p>fail to get user data</p></>
+  const created = new Date(Date.parse(userData.created));
+  const lastlogin = new Date(Date.parse(userData.lastlogin));
+  if (userData === "") {
+    return (
+      <>
+        <p>fail to get user data</p>
+      </>
+    );
   }
   return (
     <>
-      <p>created: {userData.created}</p>
-      <p>last time login: {userData.lastlogin}</p>
+      <p>
+        {dict.main.user.created}{" "}
+        {created.toLocaleString("en-US", {
+          timeZone: "Asia/Taipei",
+          hourCycle: "h23",
+        })}
+      </p>
+      <p>
+        {dict.main.user.lastin}{" "}
+        {lastlogin.toLocaleString("en-US", {
+          timeZone: "Asia/Taipei",
+          hourCycle: "h23",
+        })}
+      </p>
     </>
   );
 }

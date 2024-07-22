@@ -5,6 +5,10 @@
     "bus": "公交"
   },
   "main": {
+    "user": {
+      "created": "created:",
+      "lastin": "last time login:"
+    },
     "rail": {
       "station": {
         "title": "车站："

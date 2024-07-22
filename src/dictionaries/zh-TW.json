@@ -5,6 +5,10 @@
     "bus": "公車"
   },
   "main": {
+    "user": {
+      "created": "註冊時間：",
+      "lastin": "最後登入："
+    },
     "rail": {
       "station": {
         "title": "車站："

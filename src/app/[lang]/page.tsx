@@ -1,7 +1,6 @@
 export default function Page() {
   const utc8TimeNow: string = new Date().toLocaleString("en-US", {
     timeZone: "Asia/Taipei",
-    // hour12: false,
     hourCycle: "h23",
   });
   console.log(utc8TimeNow);
