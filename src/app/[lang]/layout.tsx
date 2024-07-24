@@ -3,6 +3,7 @@ import "./globals.css";
 import NavOpt from "@/components/NavOption";
 import { cookies } from "next/headers";
 import { getDictionary } from "./dictionaries";
+import NextTopLoader from "nextjs-toploader";
 
 type Props = {
   params: {
@@ -61,6 +62,7 @@ export default async function RootLayout({
         ></script>
       </head>
       <body>
+        <NextTopLoader zIndex={1} speed={99} />
         <nav className="fixed bottom-0 w-dvw">
           <div className="bg-gray-500 flex items-center justify-between bottom-0">
             <a href="/">
