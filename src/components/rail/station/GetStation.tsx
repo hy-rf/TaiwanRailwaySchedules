@@ -4,7 +4,7 @@ export default function GetStation({ city }: { city: string }) {
   const [InputCity, setInputCity] = useState(city);
   return (
     <>
-      <p>輸入城市：</p>
+      <p>搜尋車站：</p>
       <input
         type="text"
         value={InputCity}

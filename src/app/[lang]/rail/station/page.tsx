@@ -10,7 +10,7 @@ export default async function Page({ searchParams }: { searchParams: Prop }) {
   ).then((res) => res.data as Array<TRAStationInfo>);
   if (searchParams.city) {
     stations = stations.filter((ele) =>
-      new RegExp(searchParams.city).test(ele.LocationCity)
+      new RegExp(searchParams.city).test(ele.StationName.Zh_tw)
     );
   }
   return (
