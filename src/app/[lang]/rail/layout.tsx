@@ -1,3 +1,5 @@
+import { getDictionary } from "../dictionaries";
+
 export default async function RootLayout({
   children,
   params,
@@ -7,6 +9,7 @@ export default async function RootLayout({
     lang: string;
   };
 }) {
+  const dict = await getDictionary(params.lang);
   return (
     <div
       style={{
@@ -30,7 +33,7 @@ export default async function RootLayout({
             textDecoration: "underline",
           }}
         >
-          line
+          {dict.main.rail.nav.linetitle}
         </a>
         <a
           href="/rail/station"
@@ -39,7 +42,7 @@ export default async function RootLayout({
             textDecoration: "underline",
           }}
         >
-          station
+          {dict.main.rail.nav.stationtitle}
         </a>
       </div>
       <div>{children}</div>

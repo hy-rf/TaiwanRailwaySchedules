@@ -10,6 +10,10 @@
       "lastin": "last time login:"
     },
     "rail": {
+      "nav": {
+        "linetitle": "线路",
+        "stationtitle": "车站"
+      },
       "station": {
         "title": "车站："
       },
