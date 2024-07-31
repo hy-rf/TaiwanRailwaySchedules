@@ -15,6 +15,7 @@ export default function LineInfoClient({ params, searchParams }: any) {
 
   return (
     <>
+      <p>輸入車號：</p>
       <input
         onChange={(e) => setTrainNo(e.target.value)}
         style={{

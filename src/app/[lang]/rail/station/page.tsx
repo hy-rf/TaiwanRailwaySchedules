@@ -2,6 +2,7 @@ import GetStation from "@/components/rail/station/GetStation";
 import StoreStationButton from "@/components/rail/station/StoreStationButton";
 import TRAStationInfo from "@/type/rail/station/TRAStationInfo";
 import axios from "axios";
+import StationList from "./_component/StationList";
 type Prop = {
   city: string;
 };
@@ -14,6 +15,13 @@ export default async function Page({ searchParams }: { searchParams: Prop }) {
       new RegExp(searchParams.city).test(ele.StationName.Zh_tw)
     );
   }
+  return (
+    <>
+      <div className="p-1">
+        <StationList />
+      </div>
+    </>
+  );
   return (
     <div className="p-1">
       <GetStation city={searchParams.city} />
