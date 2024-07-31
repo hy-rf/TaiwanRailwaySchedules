@@ -1,4 +1,5 @@
 import GetStation from "@/components/rail/station/GetStation";
+import StoreStationButton from "@/components/rail/station/StoreStationButton";
 import TRAStationInfo from "@/type/rail/station/TRAStationInfo";
 import axios from "axios";
 type Prop = {
@@ -45,6 +46,7 @@ export default async function Page({ searchParams }: { searchParams: Prop }) {
                 {ele.LocationCity}
                 {ele.LocationTown}
               </p>
+              <StoreStationButton station={ele} />
             </div>
           );
         })}

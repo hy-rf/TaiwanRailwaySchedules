@@ -1,4 +1,4 @@
-import StoredStations from "@/components/rail/StoredStations";
+import StoredStations from "./_components/StoredStations";
 
 // import LineInfoClient from "@/components/rail/LineInfoClient";
 export const revalidate = 0;
