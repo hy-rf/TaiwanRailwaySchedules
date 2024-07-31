@@ -65,7 +65,7 @@ export default async function RootLayout({
         <NextTopLoader zIndex={1} speed={99} />
         <nav className="fixed bottom-0 w-dvw">
           <div className="bg-gray-500 flex items-center justify-between bottom-0">
-            <a href="/">
+            <a href="/rail">
               <img
                 src="/logo.png"
                 width="50"
@@ -79,6 +79,8 @@ export default async function RootLayout({
                 text="User"
               ></NavOpt> */}
               <NavOpt href="/rail" text={dict.nav.rail}></NavOpt>
+              <NavOpt href="/rail/station" text="車站"></NavOpt>
+              <NavOpt href="/rail/line" text="線路"></NavOpt>
               {/* <NavOpt href="/metro" text={dict.nav.metro}></NavOpt>
               <NavOpt href="/bus" text={dict.nav.bus}></NavOpt> */}
             </ul>
