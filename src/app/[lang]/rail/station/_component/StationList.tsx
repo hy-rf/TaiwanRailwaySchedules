@@ -25,7 +25,6 @@ export default function StationList() {
         setStationList(ret);
         setFilteredStationList(ret);
       });
-    console.log(setStationList);
   }, []);
   useEffect(() => {
     if (searchText === "") {
@@ -76,24 +75,30 @@ export default function StationList() {
               style={{
                 border: "1px solid grey",
                 textAlign: "center",
+                display: "flex",
+                flexDirection: "row",
               }}
             >
-              <a
-                style={{
-                  color: "blue",
-                  textDecoration: "underline",
-                  fontSize: 22,
-                }}
-                href={`/rail/station/${ele.StationID}`}
-              >
-                {ele.StationName.Zh_tw}
-              </a>
-              <p>
-                位置：
-                {ele.LocationCity}
-                {ele.LocationTown}
-              </p>
-              <StoreStationButton station={ele} />
+              <div className="p-1">
+                <a
+                  style={{
+                    color: "blue",
+                    textDecoration: "underline",
+                    fontSize: 22,
+                  }}
+                  href={`/rail/station/${ele.StationID}`}
+                >
+                  {ele.StationName.Zh_tw}
+                </a>
+                <p>
+                  位置：
+                  {ele.LocationCity}
+                  {ele.LocationTown}
+                </p>
+              </div>
+              <div className="p-1">
+                <StoreStationButton station={ele} />
+              </div>
             </div>
           );
         })}
