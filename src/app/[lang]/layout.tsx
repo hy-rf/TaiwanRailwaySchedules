@@ -13,16 +13,16 @@ type Props = {
 
 const metadatas: any = {
   "en-US": {
-    title: "Pace",
-    description: "Get Railtime",
+    title: "Taiwan Rail Schedules",
+    description: "Get Taiwan Rail Schedules",
   },
   "zh-TW": {
-    title: "鐵路時刻表",
-    description: "取得最新鐵路時刻表",
+    title: "台灣鐵路時刻表",
+    description: "取得最新台灣鐵路時刻表",
   },
   "zh-CN": {
-    title: "铁路时刻表",
-    description: "取得最新铁路时刻表",
+    title: "台湾铁路时刻表",
+    description: "取得最新台湾铁路时刻表",
   },
 };
 
@@ -49,7 +49,7 @@ export default async function RootLayout({
       <head>
         <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link
+        {/* <link
           rel="stylesheet"
           href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
           integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
@@ -59,7 +59,7 @@ export default async function RootLayout({
           src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
           integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
           crossOrigin=""
-        ></script>
+        ></script> */}
       </head>
       <body>
         <NextTopLoader zIndex={1} speed={99} />
@@ -79,8 +79,14 @@ export default async function RootLayout({
                 text="User"
               ></NavOpt> */}
               <NavOpt href="/rail" text={dict.nav.rail}></NavOpt>
-              <NavOpt href="/rail/station" text="車站"></NavOpt>
-              <NavOpt href="/rail/line" text="線路"></NavOpt>
+              <NavOpt
+                href="/rail/station"
+                text={dict.main.rail.nav.stationtitle}
+              ></NavOpt>
+              <NavOpt
+                href="/rail/line"
+                text={dict.main.rail.nav.linetitle}
+              ></NavOpt>
               {/* <NavOpt href="/metro" text={dict.nav.metro}></NavOpt>
               <NavOpt href="/bus" text={dict.nav.bus}></NavOpt> */}
             </ul>
