@@ -9,6 +9,12 @@
       "name": "start dev server",
       "request": "launch",
       "type": "node-terminal"
+    },
+    {
+      "command": "npm run deploy",
+      "name": "deploy",
+      "request": "launch",
+      "type": "node-terminal"
     }
   ]
 }
