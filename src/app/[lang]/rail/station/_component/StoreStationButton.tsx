@@ -6,8 +6,10 @@ import toast from "react-hot-toast";
 
 export default function StoreStationButton({
   station,
+  CustomToast,
 }: {
   station: TRAStationInfo;
+  CustomToast: (text: string) => void;
 }) {
   const [isShow, setIsShow] = useState(true);
   useEffect(() => {
@@ -28,6 +30,7 @@ export default function StoreStationButton({
         }}
         onClick={() => {
           storeStation(station);
+          CustomToast(`saved`);
           setIsShow(false);
         }}
       >
@@ -48,6 +51,6 @@ function storeStation(station: TRAStationInfo) {
   }
   ret.push(station);
   localStorage.setItem("stations", JSON.stringify(ret));
-  toast.success(`saved`);
+
   return;
 }

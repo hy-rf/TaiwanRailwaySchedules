@@ -3,6 +3,7 @@
 import StoreStationButton from "./StoreStationButton";
 import TRAStationInfo from "@/type/rail/station/TRAStationInfo";
 import { useEffect, useState } from "react";
+import toast from "react-hot-toast";
 
 export default function StationList() {
   const [searchText, setSearchText] = useState("");
@@ -97,7 +98,12 @@ export default function StationList() {
                 </p>
               </div>
               <div className="p-1">
-                <StoreStationButton station={ele} />
+                <StoreStationButton
+                  CustomToast={(text: string) => {
+                    toast(text);
+                  }}
+                  station={ele}
+                />
               </div>
             </div>
           );
