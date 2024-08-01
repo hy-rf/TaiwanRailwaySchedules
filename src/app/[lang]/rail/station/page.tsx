@@ -22,43 +22,4 @@ export default async function Page({ searchParams }: { searchParams: Prop }) {
       </div>
     </>
   );
-  return (
-    <div className="p-1">
-      <GetStation city={searchParams.city} />
-      <div
-        style={{
-          backgroundColor: "rgba(128, 128, 128, 0.24)",
-        }}
-      >
-        {stations.map((ele, index) => {
-          return (
-            <div
-              key={index}
-              style={{
-                border: "1px solid grey",
-                textAlign: "center",
-              }}
-            >
-              <a
-                style={{
-                  color: "blue",
-                  textDecoration: "underline",
-                  fontSize: 22,
-                }}
-                href={`/rail/station/${ele.StationID}`}
-              >
-                {ele.StationName.Zh_tw}
-              </a>
-              <p>
-                位置：
-                {ele.LocationCity}
-                {ele.LocationTown}
-              </p>
-              <StoreStationButton station={ele} />
-            </div>
-          );
-        })}
-      </div>
-    </div>
-  );
 }
