@@ -9,32 +9,30 @@ export default function StoreStationButton({
 }: {
   station: TRAStationInfo;
 }) {
-  const stations = window.localStorage.getItem("stations") || "";
-  const ret =
-    stations.length == 0
-      ? new Array<TRAStationInfo>()
-      : (JSON.parse(stations) as Array<TRAStationInfo>);
-  if (ret.find((ele) => ele.StationUID == station.StationUID)) {
-    return <></>;
-  }
   const [isShow, setIsShow] = useState(true);
   useEffect(() => {
-    console.log();
-  }, [isShow]);
+    const stations = window.localStorage.getItem("stations") || "";
+    const ret =
+      stations.length == 0
+        ? new Array<TRAStationInfo>()
+        : (JSON.parse(stations) as Array<TRAStationInfo>);
+    if (ret.find((ele) => ele.StationUID == station.StationUID)) {
+      setIsShow(false);
+    }
+  }, []);
   return (
     <>
-      {isShow ? (
-        <button
-          onClick={() => {
-            storeStation(station);
-            setIsShow((isShow) => !isShow);
-          }}
-        >
-          保存
-        </button>
-      ) : (
-        <></>
-      )}
+      <button
+        style={{
+          display: isShow ? "block" : "none",
+        }}
+        onClick={() => {
+          storeStation(station);
+          setIsShow(false);
+        }}
+      >
+        保存
+      </button>
     </>
   );
 }
