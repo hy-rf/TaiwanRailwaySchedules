@@ -35,7 +35,9 @@ export default function StationList() {
         stationList.filter(
           (ele) =>
             new RegExp(searchText).test(ele.StationName.Zh_tw) ||
-            new RegExp(searchText).test(ele.StationName.En) ||
+            new RegExp(searchText.toLowerCase()).test(
+              ele.StationName.En.toLowerCase()
+            ) ||
             new RegExp(searchText).test(ele.LocationCity) ||
             new RegExp(searchText).test(ele.LocationTown)
         )
