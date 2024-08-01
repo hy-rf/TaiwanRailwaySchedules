@@ -17,8 +17,10 @@ function getLocale(request: NextRequest, locales: Array<string>) {
   return matchLocale(languages, locales, defaultLocale);
 }
 
-export function middleware(request: NextRequest) {
-  // Check if there is any supported locale in the pathname
+export function middleware(request: NextRequest, response: NextResponse) {
+  const currentLocal = request.cookies.get("locale")?.value;
+  console.log(currentLocal);
+
   const { pathname } = request.nextUrl;
   if (["/favicon.ico", "/logo.png"].includes(pathname)) {
     return;
@@ -31,11 +33,25 @@ export function middleware(request: NextRequest) {
   if (pathnameHasLocale) return;
 
   // Redirect if there is no locale
-  const locale = getLocale(request, locales);
-  request.nextUrl.pathname = `/${locale}${pathname}`;
+  if (currentLocal !== undefined) {
+    request.nextUrl.pathname = `/${currentLocal}${pathname}`;
+    return NextResponse.redirect(request.nextUrl, {
+      headers: {
+        "Set-Cookie": `locale=${currentLocal}`,
+      },
+    });
+  } else {
+    const locale = getLocale(request, locales);
+    request.nextUrl.pathname = `/${locale}${pathname}`;
+    return NextResponse.redirect(request.nextUrl, {
+      headers: {
+        "Set-Cookie": `locale=${locale}`,
+      },
+    });
+  }
+
   // e.g. incoming request is /products
   // The new URL is now /en-US/products
-  return NextResponse.redirect(request.nextUrl);
 }
 
 export const config = {
