@@ -1,5 +1,5 @@
 import GetStation from "@/components/rail/station/GetStation";
-import StoreStationButton from "@/components/rail/station/StoreStationButton";
+import StoreStationButton from "./_component/StoreStationButton";
 import TRAStationInfo from "@/type/rail/station/TRAStationInfo";
 import axios from "axios";
 import StationList from "./_component/StationList";
