@@ -1,11 +1,11 @@
+import { getDictionary } from "../dictionaries";
 import StoredStations from "./_components/StoredStations";
 
-// import LineInfoClient from "@/components/rail/LineInfoClient";
-export const revalidate = 0;
-export default function Page() {
+export default async function Page({ params }: any) {
+  const dict = await getDictionary(params.lang);
   return (
     <>
-      <StoredStations />
+      <StoredStations title={dict.main.rail.station.storedstations} />
     </>
   );
 }

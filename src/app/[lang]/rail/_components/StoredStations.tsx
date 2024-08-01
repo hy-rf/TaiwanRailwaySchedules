@@ -1,9 +1,11 @@
 "use client";
 
 import TRAStationInfo from "@/type/rail/station/TRAStationInfo";
+import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
+import { getDictionary } from "../../dictionaries";
 
-export default function StoredStations() {
+export default function StoredStations({ title }: { title: string }) {
   const [storedStations, setStoredStations] = useState<Array<TRAStationInfo>>(
     new Array<TRAStationInfo>()
   );
@@ -16,7 +18,7 @@ export default function StoredStations() {
   }, []);
   return (
     <>
-      <h3>Stored stations</h3>
+      <h3>{title}</h3>
       {storedStations.map((ele, index) => {
         return (
           <div

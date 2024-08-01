@@ -15,7 +15,8 @@
         "stationtitle": "Station"
       },
       "station": {
-        "title": "Station: "
+        "title": "Station: ",
+        "storedstations": "Stored stations"
       },
       "line": {
         "title": "Line: "

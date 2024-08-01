@@ -15,7 +15,8 @@
         "stationtitle": "车站"
       },
       "station": {
-        "title": "车站："
+        "title": "车站：",
+        "storedstations": "保存的车站"
       },
       "line": {
         "title": "线路："

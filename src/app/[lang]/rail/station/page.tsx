@@ -1,25 +1,8 @@
-import GetStation from "@/components/rail/station/GetStation";
-import StoreStationButton from "./_component/StoreStationButton";
-import TRAStationInfo from "@/type/rail/station/TRAStationInfo";
-import axios from "axios";
-import StationList from "./_component/StationList";
-type Prop = {
-  city: string;
-};
-export default async function Page({ searchParams }: { searchParams: Prop }) {
-  var stations = await axios(
-    `${process.env.NEXT_PUBLIC_BACKEND_URL}/rail/station`
-  ).then((res) => res.data as Array<TRAStationInfo>);
-  if (searchParams.city) {
-    stations = stations.filter((ele) =>
-      new RegExp(searchParams.city).test(ele.StationName.Zh_tw)
-    );
-  }
+import StationList from "./_components/StationList";
+export default async function Page() {
   return (
-    <>
-      <div className="p-1">
-        <StationList />
-      </div>
-    </>
+    <div className="p-1">
+      <StationList />
+    </div>
   );
 }
