@@ -1,6 +1,6 @@
 "use client";
 
-import StoreStationButton from "@/components/rail/station/StoreStationButton";
+import StoreStationButton from "./StoreStationButton";
 import TRAStationInfo from "@/type/rail/station/TRAStationInfo";
 import { useEffect, useState } from "react";
 

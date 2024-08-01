@@ -1,6 +1,7 @@
 "use client";
 
 import TRAStationInfo from "@/type/rail/station/TRAStationInfo";
+import toast from "react-hot-toast";
 
 export default function StoreStationButton({
   station,
@@ -23,7 +24,10 @@ function storeStation(station: TRAStationInfo) {
     stations.length == 0
       ? new Array<TRAStationInfo>()
       : (JSON.parse(stations) as Array<TRAStationInfo>);
-  console.log(ret);
+  if (ret.find((ele) => ele.StationUID == station.StationUID)) {
+    toast(`已經存了！`);
+    return;
+  }
   ret.push(station);
   localStorage.setItem("stations", JSON.stringify(ret));
 }
