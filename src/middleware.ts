@@ -1,9 +1,6 @@
 import { NextResponse, NextRequest } from "next/server";
 import { match as matchLocale } from "@formatjs/intl-localematcher";
 import Negotiator from "negotiator";
-import { readdir } from "fs/promises";
-import { join } from "path";
-
 // Get the preferred locale, similar to the above or using a library
 function getLocale(request: NextRequest, locales: Array<string>) {
   const negotiatorHeaders: Record<string, string> = {};
@@ -63,7 +60,7 @@ export const config = {
   ],
 };
 
-async function getLocales() {
-  const files = await readdir(join(__dirname, "./dictionaries"));
-  console.log(files);
-}
+// async function getLocales() {
+//   const files = await readdir(join(__dirname, "./dictionaries"));
+//   console.log(files);
+// }
