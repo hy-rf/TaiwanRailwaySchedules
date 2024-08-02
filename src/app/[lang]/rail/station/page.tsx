@@ -1,4 +1,27 @@
 import StationList from "./_components/StationList";
+type Props = {
+  params: {
+    lang: string;
+  };
+};
+
+const metadatas: any = {
+  "en-US": {
+    title: "Taiwan Rail Stations",
+    description: "Get Taiwan Rail Stations List",
+  },
+  "zh-TW": {
+    title: "台灣鐵路車站",
+    description: "台灣鐵路車站列表",
+  },
+  "zh-CN": {
+    title: "台湾铁路车站",
+    description: "台湾铁路车站列表",
+  },
+};
+export async function generateMetadata({ params }: Props) {
+  return metadatas[params.lang];
+}
 export default async function Page() {
   return (
     <div className="p-1">

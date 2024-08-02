@@ -3,13 +3,27 @@ import { getDictionary } from "@/app/[lang]/dictionaries";
 import StationLink from "@/components/rail/StationLink";
 import axios from "axios";
 import LineLink from "@/components/rail/LineLink";
+import DailyStationsLines from "@/type/rail/station/DailyStationsLines";
 async function getTimeBoard(StationID: string) {
+  const utc8TimeNow: string[] = new Date()
+    .toLocaleString("en-US", {
+      timeZone: "Asia/Taipei",
+      hourCycle: "h23",
+    })
+    .split(",")[0]
+    .split("/");
+  const today: string = `${utc8TimeNow[2]}-${utc8TimeNow[0].padStart(
+    2,
+    "0"
+  )}-${utc8TimeNow[1].padStart(2, "0")}`;
   return await axios(
-    `${process.env.NEXT_PUBLIC_BACKEND_URL}/rail/timeboard/${StationID}`
+    `${process.env.NEXT_PUBLIC_BACKEND_URL}/rail/station/${StationID}/line/${today}`
   ).then((ret) => ret.data);
 }
 export default async function Page({ params }: any) {
-  const timeBoard: Array<TimeBoard> = await getTimeBoard(params.stationId);
+  const timeBoard: Array<DailyStationsLines> = await getTimeBoard(
+    params.stationId
+  );
   const dict = await getDictionary(params.lang);
   if (timeBoard.length == 0) {
     return (
@@ -34,7 +48,7 @@ export default async function Page({ params }: any) {
         {dict.main.rail.station.title}
         {timeBoard[0].StationName.Zh_tw}
       </b>
-      {timeBoard.map((ele: TimeBoard, index: number) => {
+      {timeBoard.map((ele: DailyStationsLines, index: number) => {
         return (
           <div className="p-3" key={ele.TrainNo}>
             <p>
@@ -51,15 +65,15 @@ export default async function Page({ params }: any) {
                 stationName={ele.EndingStationName.Zh_tw}
               />
             </p>
-            <span>到達時間：{ele.ScheduledArrivalTime.slice(0, -3)}</span>&nbsp;
-            <span>離站時間：{ele.ScheduledDepartureTime.slice(0, -3)}</span>
+            <span>到達時間：{ele.ArrivalTime}</span>&nbsp;
+            <span>離站時間：{ele.DepartureTime}</span>
             &nbsp;
             <span
               style={{
                 color: "red",
               }}
             >
-              延遲時間：{ele.DelayTime}分
+              延遲時間：敬請期待
             </span>
             <p
               style={{
