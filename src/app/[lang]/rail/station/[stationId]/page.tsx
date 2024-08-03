@@ -4,6 +4,7 @@ import StationLink from "@/components/rail/StationLink";
 import axios from "axios";
 import LineLink from "@/components/rail/LineLink";
 import DailyStationsLines from "@/type/rail/station/DailyStationsLines";
+import LineList from "./_components/LineList";
 async function getTimeBoard(StationID: string) {
   const utc8TimeNow: string[] = new Date()
     .toLocaleString("en-US", {
@@ -48,7 +49,8 @@ export default async function Page({ params }: any) {
         {dict.main.rail.station.title}
         {timeBoard[0].StationName.Zh_tw}
       </b>
-      {timeBoard.map((ele: DailyStationsLines, index: number) => {
+      <LineList lineList={timeBoard} />
+      {/* {timeBoard.map((ele: DailyStationsLines, index: number) => {
         return (
           <div className="p-3" key={ele.TrainNo}>
             <p>
@@ -85,7 +87,7 @@ export default async function Page({ params }: any) {
             <hr />
           </div>
         );
-      })}
+      })} */}
     </>
   );
 }
