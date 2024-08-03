@@ -8,7 +8,7 @@ export default function LoginPanel() {
     }
   });
   return (
-    <>
+    <div className="fixed top-1 right-10">
       {isLogin && <p>login</p>}
       {!isLogin && (
         <GoogleOAuthProvider clientId="">
@@ -28,6 +28,6 @@ export default function LoginPanel() {
           ></GoogleLogin>
         </GoogleOAuthProvider>
       )}
-    </>
+    </div>
   );
 }

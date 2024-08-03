@@ -91,12 +91,10 @@ export default async function RootLayout({
               {/* <NavOpt href="/metro" text={dict.nav.metro}></NavOpt>
               <NavOpt href="/bus" text={dict.nav.bus}></NavOpt> */}
             </ul>
-            <p>
-              <LoginPanel />
-            </p>
           </div>
         </nav>
         <main className="mt-3 ml-3 mr-3 mb-16">{children}</main>
+        <LoginPanel />
       </body>
     </html>
   );
