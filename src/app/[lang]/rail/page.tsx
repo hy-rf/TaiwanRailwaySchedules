@@ -1,5 +1,8 @@
+import dynamic from "next/dynamic";
 import { getDictionary } from "../dictionaries";
-import StoredStations from "./_components/StoredStations";
+const StoredStations = dynamic(() => import("./_components/StoredStations"), {
+  loading: () => <p>Loading...</p>,
+});
 
 export default async function Page({ params }: any) {
   const dict = await getDictionary(params.lang);

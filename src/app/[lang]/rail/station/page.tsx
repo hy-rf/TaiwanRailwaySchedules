@@ -1,4 +1,7 @@
-import StationList from "./_components/StationList";
+import dynamic from "next/dynamic";
+const StationList = dynamic(() => import("./_components/StationList"), {
+  loading: () => <p>Loading...</p>,
+});
 type Props = {
   params: {
     lang: string;
@@ -22,6 +25,7 @@ const metadatas: any = {
 export async function generateMetadata({ params }: Props) {
   return metadatas[params.lang];
 }
+
 export default async function Page() {
   return (
     <div className="p-1">
