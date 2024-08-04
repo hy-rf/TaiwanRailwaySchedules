@@ -6,8 +6,8 @@
   },
   "main": {
     "user": {
-      "created": "created:",
-      "lastin": "last time login:"
+      "created": "注册时间：",
+      "lastin": "最后登入："
     },
     "rail": {
       "nav": {
