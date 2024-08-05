@@ -14,7 +14,13 @@ function getLocale(request: NextRequest, locales: Array<string>) {
   return matchLocale(languages, locales, defaultLocale);
 }
 
-export function middleware(request: NextRequest, response: NextResponse) {
+export async function middleware(request: NextRequest, response: NextResponse) {
+  const dict = await import("@/dictionaries/en-US.json").then(
+    (mod) => mod.default
+  );
+  const localizationStringKeys = Object.getOwnPropertyNames(dict);
+  console.log(localizationStringKeys);
+
   const currentLocal = request.cookies.get("locale")?.value;
   console.log(currentLocal);
 

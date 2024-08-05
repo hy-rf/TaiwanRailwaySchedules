@@ -22,5 +22,9 @@
         "title": "Line: "
       }
     }
-  }
+  },
+  "station_list_filter_button_text": "filter",
+  "station_list_filter_input_text": "Enter keyword:",
+  "station_list_save_button_text": "save",
+  "station_list_location_text": "location:"
 }

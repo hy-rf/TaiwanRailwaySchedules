@@ -1,4 +1,5 @@
 import dynamic from "next/dynamic";
+import { getDictionary } from "../../dictionaries";
 const StationList = dynamic(() => import("./_components/StationList"), {
   loading: () => <p>Loading...</p>,
 });
@@ -26,10 +27,11 @@ export async function generateMetadata({ params }: Props) {
   return metadatas[params.lang];
 }
 
-export default async function Page() {
+export default async function Page({ params }: Props) {
+  const dict = await getDictionary(params.lang);
   return (
     <div className="p-1">
-      <StationList />
+      <StationList dict={dict} />
     </div>
   );
 }

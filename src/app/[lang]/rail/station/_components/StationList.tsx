@@ -5,7 +5,7 @@ import TRAStationInfo from "@/type/rail/station/TRAStationInfo";
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 
-export default function StationList() {
+export default function StationList({ dict }: { dict: any }) {
   const [searchText, setSearchText] = useState("");
   const [searchTextInput, setSeatchTextInput] = useState("");
   const [stationList, setStationList] = useState<Array<TRAStationInfo>>(
@@ -46,7 +46,7 @@ export default function StationList() {
   }, [searchText]);
   return (
     <>
-      <p>輸入關鍵字：</p>
+      <p>{dict.station_list_filter_input_text}</p>
       <input
         type="text"
         value={searchTextInput}
@@ -61,7 +61,7 @@ export default function StationList() {
           setSearchText(searchTextInput);
         }}
       >
-        過濾
+        {dict.station_list_filter_button_text}
       </button>
       <hr />
       <div
@@ -92,7 +92,7 @@ export default function StationList() {
                   {ele.StationName.Zh_tw}
                 </a>
                 <p>
-                  位置：
+                  {dict.station_list_location_text}
                   {ele.LocationCity}
                   {ele.LocationTown}
                 </p>

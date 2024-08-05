@@ -22,5 +22,9 @@
         "title": "線路："
       }
     }
-  }
+  },
+  "station_list_filter_button_text": "過濾",
+  "station_list_filter_input_text": "輸入關鍵字：",
+  "station_list_save_button_text": "保存",
+  "station_list_location_text": "位置："
 }
