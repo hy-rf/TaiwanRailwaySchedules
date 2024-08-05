@@ -49,6 +49,10 @@ export default async function RootLayout({
       <head>
         <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta
+          name="google-site-verification"
+          content="xBsRsq-Jwga4v_OfE5eIF7nArfDR61qh89787A18crM"
+        />
         {/* <link
           rel="stylesheet"
           href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
