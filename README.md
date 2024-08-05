@@ -39,21 +39,24 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 src/
 │
 ├── app/
-│   ├── Home.vue
-│   ├── About.vue
-│   └── ...
-│
+│   ├── _components/
+│   │   └──NavOption.tsx
+│   │
+│   ├── rail
+│   ├── user
+│   ├── dictionaries.js
+│   ├── global.css
+│   ├── layout.tsx
+│   └── page.tsx
 │
 ├── dictionaries/
 │   ├── en-US.json
 │   ├── zh-CN.json
 │   └── zh-TW.json
 │
-│
 ├── type/
 │   ├── jwtpayload.ts
 │   └── ...
-│
 │
 └── middleware.ts
 ```
