@@ -38,36 +38,22 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 ```
 src/
 │
-├── assets/
-│
-├── components/
-│   ├── Header.vue
-│   ├── Footer.vue
-│   └── ...
-│
-├── views/
+├── app/
 │   ├── Home.vue
 │   ├── About.vue
 │   └── ...
 │
-├── router/
-│   ├── index.js
+│
+├── dictionaries/
+│   ├── en-US.json
+│   ├── zh-CN.json
+│   └── zh-TW.json
+│
+│
+├── type/
+│   ├── jwtpayload.ts
 │   └── ...
 │
-├── store/
-│   ├── index.js
-│   └── modules/
-│       ├── auth.js
-│       └── ...
 │
-├── services/
-│   ├── api.js
-│   └── ...
-│
-├── utils/
-│   ├── helpers.js
-│   └── ...
-│
-└── App.vue
-└── main.js
+└── middleware.ts
 ```
