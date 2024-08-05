@@ -19,7 +19,11 @@ export function middleware(request: NextRequest, response: NextResponse) {
   console.log(currentLocal);
 
   const { pathname } = request.nextUrl;
-  if (["/favicon.ico", "/logo.png"].includes(pathname)) {
+  if (
+    ["/favicon.ico", "/logo.png", "/googlec943e120b8428ef8.html"].includes(
+      pathname
+    )
+  ) {
     return;
   }
   const locales = ["en-US", "zh-TW", "zh-CN"];
