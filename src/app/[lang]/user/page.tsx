@@ -1,5 +1,5 @@
 import axios from "axios";
-import type { Metadata, ResolvingMetadata } from "next";
+import type { Metadata } from "next";
 import { cookies } from "next/headers";
 import { getDictionary } from "../dictionaries";
 type Props = {

@@ -1,4 +1,4 @@
-import LineInfoClient from "@/components/rail/line/LineInfoClient";
+import LineInfoClient from "@/app/[lang]/rail/line/_components/LineInfoClient";
 export default function Page() {
   return (
     <div className="p-1">

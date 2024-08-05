@@ -1,6 +1,6 @@
 "use client";
-import LineLink from "@/components/rail/LineLink";
-import StationLink from "@/components/rail/StationLink";
+import LineLink from "@/app/[lang]/rail/_components/LineLink";
+import StationLink from "@/app/[lang]/rail/_components/StationLink";
 import DailyStationsLines from "@/type/rail/station/DailyStationsLines";
 import { useState } from "react";
 

@@ -1,7 +1,7 @@
 "use client";
 import LineInfo from "@/type/rail/line/LineInfo";
 import StopTime from "@/type/rail/line/StopTime";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 async function getTodayLineStops(LineID: string) {
   const data = fetch(
     `${process.env.NEXT_PUBLIC_BACKEND_URL}/rail/line/${LineID}`
@@ -9,7 +9,6 @@ async function getTodayLineStops(LineID: string) {
   return data;
 }
 export default function LineInfoClient({ params, searchParams }: any) {
-  const [inputValue, setInputValue] = useState("");
   const [trainNo, setTrainNo] = useState("");
   const [lineInfo, setLineInfo] = useState<Array<LineInfo>>();
 

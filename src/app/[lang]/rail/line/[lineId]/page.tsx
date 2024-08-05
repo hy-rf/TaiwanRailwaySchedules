@@ -1,7 +1,7 @@
 import LineInfo from "@/type/rail/line/LineInfo";
 import StopTime from "@/type/rail/line/StopTime";
 import { getDictionary } from "@/app/[lang]/dictionaries";
-import StationLink from "@/components/rail/StationLink";
+import StationLink from "@/app/[lang]/rail/_components/StationLink";
 import axios from "axios";
 async function getTodayLineStops(LineID: string) {
   return await axios(

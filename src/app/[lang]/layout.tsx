@@ -1,6 +1,5 @@
-import type { Metadata } from "next";
 import "./globals.css";
-import NavOpt from "@/components/NavOption";
+import NavOpt from "./_components/NavOption";
 import { cookies } from "next/headers";
 import { getDictionary } from "./dictionaries";
 import NextTopLoader from "nextjs-toploader";
