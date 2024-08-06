@@ -26,9 +26,12 @@ export async function middleware(request: NextRequest, response: NextResponse) {
 
   const { pathname } = request.nextUrl;
   if (
-    ["/favicon.ico", "/logo.png", "/googlec943e120b8428ef8.html"].includes(
-      pathname
-    )
+    [
+      "/favicon.ico",
+      "/logo.png",
+      "/googlec943e120b8428ef8.html",
+      "/sitemap.xml",
+    ].includes(pathname)
   ) {
     return;
   }
