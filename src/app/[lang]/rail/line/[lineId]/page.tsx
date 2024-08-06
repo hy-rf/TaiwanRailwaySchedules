@@ -11,6 +11,17 @@ async function getTodayLineStops(LineID: string) {
 export default async function Page({ params }: any) {
   const lineInfo: Array<LineInfo> = await getTodayLineStops(params.lineId);
   const dict = await getDictionary(params.lang);
+  const utc8TimeNow: string = new Date()
+    .toLocaleString("en-US", {
+      timeZone: "Asia/Taipei",
+      hourCycle: "h23",
+    })
+    .split(", ")[1]
+    .split(":")
+    .join("")
+    .slice(0, 4);
+  console.log(utc8TimeNow);
+
   if (lineInfo.length == 0) {
     return (
       <>
