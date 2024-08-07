@@ -21,17 +21,10 @@ export default function StoredStations({ title }: { title: string }) {
         return (
           <div
             key={index}
-            style={{
-              border: "1px solid grey",
-              textAlign: "center",
-            }}
+            className="border-2 border-gray-400 border-solid text-center"
           >
             <a
-              style={{
-                color: "blue",
-                textDecoration: "underline",
-                fontSize: 22,
-              }}
+              className="text-blue-500 underline"
               href={`/rail/station/${ele.StationID}`}
             >
               {ele.StationName.Zh_tw}

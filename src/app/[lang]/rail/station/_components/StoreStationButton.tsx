@@ -25,9 +25,7 @@ export default function StoreStationButton({
   return (
     <>
       <button
-        style={{
-          display: isShow ? "block" : "none",
-        }}
+        className={isShow ? "block" : "hidden"}
         onClick={() => {
           storeStation(station);
           CustomToast(`saved`);

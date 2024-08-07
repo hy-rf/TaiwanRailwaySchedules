@@ -1,12 +1,6 @@
 export default function LineLink({ lineId }: { lineId: string }) {
   return (
-    <a
-      style={{
-        color: "blue",
-        textDecoration: "underline",
-      }}
-      href={`/rail/line/${lineId}`}
-    >
+    <a className="text-blue-500 underline" href={`/rail/line/${lineId}`}>
       {lineId}
     </a>
   );

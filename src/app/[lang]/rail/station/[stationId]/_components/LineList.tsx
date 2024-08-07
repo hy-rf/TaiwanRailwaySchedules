@@ -56,20 +56,8 @@ export default function LineList({
               <span>到達時間：{ele.ArrivalTime}</span>&nbsp;
               <span>離站時間：{ele.DepartureTime}</span>
               &nbsp;
-              <span
-                style={{
-                  color: "red",
-                }}
-              >
-                延遲時間：敬請期待
-              </span>
-              <p
-                style={{
-                  color: "#12ACAC",
-                }}
-              >
-                {ele.TrainTypeName.Zh_tw}
-              </p>
+              <span className="text-red-500">延遲時間：敬請期待</span>
+              <p className="text-[#12ACAC]">{ele.TrainTypeName.Zh_tw}</p>
               <hr />
             </div>
           );

@@ -17,10 +17,7 @@ export default function LineInfoClient({ params, searchParams }: any) {
       <p>輸入車號：</p>
       <input
         onChange={(e) => setTrainNo(e.target.value)}
-        style={{
-          border: "1px grey solid",
-          margin: "5px",
-        }}
+        className="border-2 border-gray-400 border-solid m-px"
       />
       <button
         onClick={() => {
@@ -44,12 +41,7 @@ export default function LineInfoClient({ params, searchParams }: any) {
           {lineInfo.length > 0 && (
             <>
               <hr />
-              <div
-                style={{
-                  display: "flex",
-                  flexDirection: "row",
-                }}
-              >
+              <div className="flex flex-row">
                 <div>
                   <b className="text-xl antialiased">
                     線路：
@@ -65,11 +57,8 @@ export default function LineInfoClient({ params, searchParams }: any) {
               <p className="text-x antialiased">
                 起程站：{" "}
                 <a
+                  className="text-blue-500 underline"
                   href={`/rail/station/${lineInfo[0].DailyTrainInfo.StartingStationID}`}
-                  style={{
-                    color: "blue",
-                    textDecoration: "underline",
-                  }}
                 >
                   {lineInfo[0].DailyTrainInfo.StartingStationName.Zh_tw}
                 </a>
@@ -77,11 +66,8 @@ export default function LineInfoClient({ params, searchParams }: any) {
               <p className="text-x antialiased">
                 終點站：{" "}
                 <a
+                  className="text-blue-500 underline"
                   href={`/rail/station/${lineInfo[0].DailyTrainInfo.EndingStationID}`}
-                  style={{
-                    color: "blue",
-                    textDecoration: "underline",
-                  }}
                 >
                   {lineInfo[0].DailyTrainInfo.EndingStationName.Zh_tw}
                 </a>
@@ -93,9 +79,7 @@ export default function LineInfoClient({ params, searchParams }: any) {
                     <p>
                       站名：{" "}
                       <a
-                        style={{
-                          color: "blue",
-                        }}
+                        className="text-blue-500 underline"
                         href={`/rail/station/${ele.StationID}`}
                       >
                         {ele.StationName.Zh_tw}

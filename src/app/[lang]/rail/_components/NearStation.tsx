@@ -52,14 +52,7 @@ export default function NearStation() {
           <div key={index}>
             <a href={`/rail/station?sid=${ele.SID}`}>
               站名:{" "}
-              <span
-                style={{
-                  color: "blue",
-                  textDecoration: "underline",
-                }}
-              >
-                {ele.SN.Zh_tw}
-              </span>
+              <span className="text-blue-500 underline">{ele.SN.Zh_tw}</span>
             </a>
             <p>站號: {ele.SID}</p>
           </div>
