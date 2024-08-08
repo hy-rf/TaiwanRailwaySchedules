@@ -27,8 +27,8 @@ export async function middleware(request: NextRequest, response: NextResponse) {
   const { pathname } = request.nextUrl;
   if (
     [
-      "/favicon.ico",
-      "/favicon.png",
+      "/icon.ico",
+      "/icon.png",
       "/googlec943e120b8428ef8.html",
       "/logo.webp",
       "/sitemap.xml",
