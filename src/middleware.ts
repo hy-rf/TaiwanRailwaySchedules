@@ -36,6 +36,7 @@ export async function middleware(request: NextRequest, response: NextResponse) {
   ) {
     return;
   }
+
   const locales = ["en-US", "zh-TW", "zh-CN"];
   const pathnameHasLocale = locales.some(
     (locale) => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`
