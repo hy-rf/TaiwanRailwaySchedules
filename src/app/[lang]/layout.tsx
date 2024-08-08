@@ -73,7 +73,7 @@ export default async function RootLayout({
           <div className="bg-gray-500 flex items-center justify-between bottom-0">
             <a href="/rail">
               <img
-                src="/logo.png"
+                src="/logo.webp"
                 width="50"
                 height="50"
                 className="m-0 p-0 ml-2"

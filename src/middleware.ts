@@ -28,7 +28,7 @@ export async function middleware(request: NextRequest, response: NextResponse) {
   if (
     [
       "/favicon.ico",
-      "/logo.png",
+      "/logo.webp",
       "/googlec943e120b8428ef8.html",
       "/sitemap.xml",
     ].includes(pathname)
