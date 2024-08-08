@@ -28,8 +28,9 @@ export async function middleware(request: NextRequest, response: NextResponse) {
   if (
     [
       "/favicon.ico",
-      "/logo.webp",
+      "/favicon.png",
       "/googlec943e120b8428ef8.html",
+      "/logo.webp",
       "/sitemap.xml",
     ].includes(pathname)
   ) {

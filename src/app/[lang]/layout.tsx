@@ -55,6 +55,7 @@ export default async function RootLayout({
           name="google-site-verification"
           content="xBsRsq-Jwga4v_OfE5eIF7nArfDR61qh89787A18crM"
         />
+        <link rel="icon" href="/favicon.ico"></link>
         {/* <link
           rel="stylesheet"
           href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
