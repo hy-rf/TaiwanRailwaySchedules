@@ -45,54 +45,55 @@ export default function StationList({ dict }: { dict: any }) {
     }
   }, [searchText]);
   return (
-    <>
-      <p>{dict.station_list_filter_input_text}</p>
-      <input
-        className="border-2 border-gray-400 border-solid m-1"
-        type="text"
-        value={searchTextInput}
-        onChange={(e) => setSeatchTextInput(e.target.value)}
-      />
-      <button
-        onClick={() => {
-          setSearchText(searchTextInput);
-        }}
-      >
-        {dict.station_list_filter_button_text}
-      </button>
-      <hr />
-      <div className="bg-stone-300">
-        {filteredStationList.map((ele, index) => {
-          return (
-            <div
-              key={index}
-              className="border-2 border-gray-400 border-solid text-center flex flex-row"
-            >
-              <div className="p-1">
-                <a
-                  className="text-blue-500 underline "
-                  href={`/rail/station/${ele.StationID}`}
-                >
-                  {ele.StationName.Zh_tw}
-                </a>
-                <p>
-                  {dict.station_list_location_text}
-                  {ele.LocationCity}
-                  {ele.LocationTown}
-                </p>
-              </div>
-              <div className="p-1">
-                <StoreStationButton
-                  CustomToast={(text: string) => {
-                    toast(text);
-                  }}
-                  station={ele}
-                />
-              </div>
-            </div>
-          );
-        })}
+    <div className="container mx-auto p-4">
+      <div className="mb-6">
+        <p className="text-lg mb-2">{dict.station_list_filter_input_text}</p>
+        <div className="flex">
+          <input
+            className="flex-grow border-2 border-gray-300 rounded-l-md p-2 focus:outline-none focus:border-blue-500"
+            type="text"
+            value={searchTextInput}
+            onChange={(e) => setSeatchTextInput(e.target.value)}
+            placeholder="Search stations..."
+          />
+          <button
+            className="bg-blue-500 text-white px-4 py-2 rounded-r-md hover:bg-blue-600 transition duration-200"
+            onClick={() => {
+              setSearchText(searchTextInput);
+            }}
+          >
+            {dict.station_list_filter_button_text}
+          </button>
+        </div>
       </div>
-    </>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        {filteredStationList.map((ele, index) => (
+          <div
+            key={index}
+            className="bg-white shadow-md rounded-lg overflow-hidden hover:shadow-lg transition duration-200"
+          >
+            <div className="p-4">
+              <a
+                className="text-xl font-semibold text-blue-600 hover:text-blue-800"
+                href={`/rail/station/${ele.StationID}`}
+              >
+                {ele.StationName.Zh_tw}
+              </a>
+              <p className="text-gray-600 mt-2">
+                {dict.station_list_location_text} {ele.LocationCity} {ele.LocationTown}
+              </p>
+            </div>
+            <div className="bg-gray-100 px-4 py-2">
+              <StoreStationButton
+                CustomToast={(text: string) => {
+                  toast(text);
+                }}
+                station={ele}
+              />
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
   );
 }
