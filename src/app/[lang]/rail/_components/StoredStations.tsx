@@ -21,19 +21,19 @@ export default function StoredStations({ title }: { title: string }) {
         return (
           <div
             key={index}
-            className="border-2 border-gray-400 border-solid text-center"
+            className="bg-white shadow-md rounded-lg overflow-hidden hover:shadow-lg transition duration-200 mb-2"
           >
-            <a
-              className="text-blue-500 underline"
-              href={`/rail/station/${ele.StationID}`}
-            >
-              {ele.StationName.Zh_tw}
-            </a>
-            <p>
-              位置：
-              {ele.LocationCity}
-              {ele.LocationTown}
-            </p>
+            <div className="p-4">
+              <a
+                className="text-xl font-semibold text-blue-600 hover:text-blue-800"
+                href={`/rail/station/${ele.StationID}`}
+              >
+                {ele.StationName.Zh_tw}
+              </a>
+              <p className="text-gray-600 mt-2">
+                {ele.LocationCity} {ele.LocationTown}
+              </p>
+            </div>
           </div>
         );
       })}
