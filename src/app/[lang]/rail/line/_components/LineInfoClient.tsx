@@ -11,25 +11,30 @@ async function getTodayLineStops(LineID: string) {
 export default function LineInfoClient({ params, searchParams }: any) {
   const [trainNo, setTrainNo] = useState("");
   const [lineInfo, setLineInfo] = useState<Array<LineInfo>>();
-
   return (
-    <>
-      <p>輸入車號：</p>
-      <input
-        onChange={(e) => setTrainNo(e.target.value)}
-        className="border-2 border-gray-400 border-solid m-px"
-      />
-      <button
-        onClick={() => {
-          getTodayLineStops(trainNo)
-            .then((ret) => ret.json())
-            .then((ret) => {
-              setLineInfo(ret);
-            });
-        }}
-      >
-        取得線路資訊
-      </button>
+    <div className="container mx-auto p-4">
+      <div className="mb-6">
+        <p className="text-lg mb-2">輸入車號：</p>
+        <div className="flex">
+          <input
+            className="border-2 border-gray-300 rounded-l-md p-2 focus:outline-none focus:border-blue-500"
+            type="text"
+            onChange={(e) => setTrainNo(e.target.value)}
+          />
+          <button
+            className="bg-blue-500 text-white px-4 py-2 rounded-r-md hover:bg-blue-600 transition duration-200"
+            onClick={() => {
+              getTodayLineStops(trainNo)
+                .then((ret) => ret.json())
+                .then((ret) => {
+                  setLineInfo(ret);
+                });
+            }}
+          >
+            取得線路資訊
+          </button>
+        </div>
+      </div>
       {lineInfo != undefined && (
         <>
           {" "}
@@ -95,6 +100,6 @@ export default function LineInfoClient({ params, searchParams }: any) {
           )}
         </>
       )}
-    </>
+    </div>
   );
 }

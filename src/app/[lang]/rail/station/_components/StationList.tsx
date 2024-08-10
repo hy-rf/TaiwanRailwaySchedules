@@ -50,7 +50,7 @@ export default function StationList({ dict }: { dict: any }) {
         <p className="text-lg mb-2">{dict.station_list_filter_input_text}</p>
         <div className="flex">
           <input
-            className="flex-grow border-2 border-gray-300 rounded-l-md p-2 focus:outline-none focus:border-blue-500"
+            className="border-2 border-gray-300 rounded-l-md p-2 focus:outline-none focus:border-blue-500"
             type="text"
             value={searchTextInput}
             onChange={(e) => setSeatchTextInput(e.target.value)}

@@ -15,8 +15,10 @@ export default function StoredStations({ title }: { title: string }) {
     }
   }, []);
   return (
-    <>
-      <h3>{title}</h3>
+    <div className="container mx-auto p-4">
+      <div className="mb-6">
+        <h3 className="text-lg mb-2">{title}</h3>
+      </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {storedStations.map((ele, index) => {
           return (
@@ -39,6 +41,6 @@ export default function StoredStations({ title }: { title: string }) {
           );
         })}
       </div>
-    </>
+    </div>
   );
 }

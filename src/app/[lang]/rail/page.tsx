@@ -7,8 +7,8 @@ const StoredStations = dynamic(() => import("./_components/StoredStations"), {
 export default async function Page({ params }: any) {
   const dict = await getDictionary(params.lang);
   return (
-    <>
+    <div className="p-1">
       <StoredStations title={dict.main.rail.station.storedstations} />
-    </>
+    </div>
   );
 }
