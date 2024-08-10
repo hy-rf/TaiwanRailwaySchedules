@@ -17,26 +17,28 @@ export default function StoredStations({ title }: { title: string }) {
   return (
     <>
       <h3>{title}</h3>
-      {storedStations.map((ele, index) => {
-        return (
-          <div
-            key={index}
-            className="bg-white shadow-md rounded-lg overflow-hidden hover:shadow-lg transition duration-200 mb-2"
-          >
-            <div className="p-4">
-              <a
-                className="text-xl font-semibold text-blue-600 hover:text-blue-800"
-                href={`/rail/station/${ele.StationID}`}
-              >
-                {ele.StationName.Zh_tw}
-              </a>
-              <p className="text-gray-600 mt-2">
-                {ele.LocationCity} {ele.LocationTown}
-              </p>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        {storedStations.map((ele, index) => {
+          return (
+            <div
+              key={index}
+              className="bg-white shadow-md rounded-lg overflow-hidden hover:shadow-lg transition duration-200"
+            >
+              <div className="p-4">
+                <a
+                  className="text-xl font-semibold text-blue-600 hover:text-blue-800"
+                  href={`/rail/station/${ele.StationID}`}
+                >
+                  {ele.StationName.Zh_tw}
+                </a>
+                <p className="text-gray-600 mt-2">
+                  {ele.LocationCity} {ele.LocationTown}
+                </p>
+              </div>
             </div>
-          </div>
-        );
-      })}
+          );
+        })}
+      </div>
     </>
   );
 }
