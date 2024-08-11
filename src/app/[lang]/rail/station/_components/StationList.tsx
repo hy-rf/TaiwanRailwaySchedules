@@ -70,7 +70,7 @@ export default function StationList({ dict }: { dict: any }) {
         {filteredStationList.map((ele, index) => (
           <div
             key={index}
-            className="bg-white shadow-md rounded-lg overflow-hidden hover:shadow-lg transition duration-200"
+            className="bg-gray-100 shadow-md rounded-lg overflow-hidden hover:shadow-lg transition duration-200"
           >
             <div className="p-4">
               <a
@@ -83,11 +83,8 @@ export default function StationList({ dict }: { dict: any }) {
                 {dict.station_list_location_text} {ele.LocationCity} {ele.LocationTown}
               </p>
             </div>
-            <div className="bg-gray-100 px-4 py-2">
+            <div className="px-4 py-2">
               <StoreStationButton
-                CustomToast={(text: string) => {
-                  toast(text);
-                }}
                 station={ele}
               />
             </div>

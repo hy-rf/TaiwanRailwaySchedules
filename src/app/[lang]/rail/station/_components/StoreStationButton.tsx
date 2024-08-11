@@ -6,10 +6,8 @@ import toast from "react-hot-toast";
 
 export default function StoreStationButton({
   station,
-  CustomToast,
 }: {
   station: TRAStationInfo;
-  CustomToast: (text: string) => void;
 }) {
   const [isShow, setIsShow] = useState(true);
   useEffect(() => {
@@ -28,7 +26,7 @@ export default function StoreStationButton({
         className={isShow ? "block" : "hidden"}
         onClick={() => {
           storeStation(station);
-          CustomToast(`saved`);
+          toast.success(`saved`);
           setIsShow(false);
         }}
       >

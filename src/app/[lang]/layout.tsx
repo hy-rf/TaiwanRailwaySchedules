@@ -6,6 +6,7 @@ import NextTopLoader from "nextjs-toploader";
 import LoginPanel from "./user/_components/LoginPanel";
 import { ErrorBoundary } from "next/dist/client/components/error-boundary";
 import Error from "./global-error";
+import { Toaster } from "react-hot-toast";
 
 type Props = {
   params: {
@@ -90,6 +91,7 @@ export default async function RootLayout({
         <ErrorBoundary errorComponent={Error}>
           <main className="mt-3 ml-3 mr-3 mb-16">{children}</main>
         </ErrorBoundary>
+        <Toaster position="top-right" />
         {/* <LoginPanel /> */}
       </body>
     </html>
