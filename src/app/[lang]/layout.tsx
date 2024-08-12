@@ -58,38 +58,36 @@ export default async function RootLayout({
         />
       </head>
       <body>
-        <NextTopLoader zIndex={1} speed={99} />
-        <nav className="fixed bottom-0 w-dvw">
-          <div className="bg-gray-500 flex items-center justify-between bottom-0">
-            <a href="/rail">
-              <img
-                src="/logo.webp"
-                width="50"
-                height="50"
-                className="m-0 p-0 ml-2"
-              ></img>
-            </a>
-            <ul className="font-medium flex p-1 mt-0 mr-10 border border-gray-100 rounded-lg bg-gray-50 rtl:space-x-reverse bg-gray-800 border-gray-700 mt-2 m-2">
-              {/* <NavOpt
-                href={loggedin ? "/user" : "/user/login"}
-                text="User"
-              ></NavOpt> */}
-              <NavOpt href="/rail" text={dict.nav.rail}></NavOpt>
-              <NavOpt
-                href="/rail/station"
-                text={dict.main.rail.nav.stationtitle}
-              ></NavOpt>
-              <NavOpt
-                href="/rail/line"
-                text={dict.main.rail.nav.linetitle}
-              ></NavOpt>
-              {/* <NavOpt href="/metro" text={dict.nav.metro}></NavOpt>
-              <NavOpt href="/bus" text={dict.nav.bus}></NavOpt> */}
-            </ul>
+        <NextTopLoader />
+        <nav className="bg-blue-600 text-white shadow-md">
+          <div className="container mx-auto px-4">
+            <div className="flex items-center justify-between py-4">
+              <a href="/rail" className="flex items-center">
+                <img
+                  src="/logo.webp"
+                  width="40"
+                  height="40"
+                  className="mr-2"
+                  alt="Logo"
+                />
+                <span className="text-xl font-semibold">Taiwan Rail</span>
+              </a>
+              <ul className="flex space-x-4">
+                <NavOpt href="/rail" text={dict.nav.rail} />
+                <NavOpt
+                  href="/rail/station"
+                  text={dict.main.rail.nav.stationtitle}
+                />
+                <NavOpt
+                  href="/rail/line"
+                  text={dict.main.rail.nav.linetitle}
+                />
+              </ul>
+            </div>
           </div>
         </nav>
         <ErrorBoundary errorComponent={Error}>
-          <main className="mt-3 ml-3 mr-3 mb-16">{children}</main>
+          <main className="container mx-auto px-4 py-8">{children}</main>
         </ErrorBoundary>
         <Toaster position="top-right" />
         {/* <LoginPanel /> */}
