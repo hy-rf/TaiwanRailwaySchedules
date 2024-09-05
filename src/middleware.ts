@@ -41,7 +41,15 @@ export async function middleware(request: NextRequest, response: NextResponse) {
     (locale) => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`
   );
 
-  if (pathnameHasLocale) return;
+
+  if (pathnameHasLocale) {
+    return
+  };
+  if (currentLocal) {
+    request.cookies.set("locale", currentLocal)
+    request.nextUrl.pathname = `/${currentLocal}${pathname}`;
+    return NextResponse.redirect(request.nextUrl)
+  }
 
   // Redirect if there is no locale
   if (currentLocal !== undefined) {
