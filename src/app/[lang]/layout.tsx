@@ -56,6 +56,10 @@ export default async function RootLayout({
           name="google-site-verification"
           content="xBsRsq-Jwga4v_OfE5eIF7nArfDR61qh89787A18crM"
         />
+        <link rel="alternate" href="https://railway-schedules.vercel.app/en-US" hrefLang="x-default" />
+        <link rel="alternate" href="https://railway-schedules.vercel.app/en-US" hrefLang="en-US" />
+        <link rel="alternate" href="https://railway-schedules.vercel.app/zh-TW" hrefLang="zh-TW" />
+        <link rel="alternate" href="https://railway-schedules.vercel.app/zh-CN" hrefLang="zh-CN" />
       </head>
       <body>
         <NextTopLoader />
